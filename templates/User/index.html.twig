@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Paniermalin{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script type="text/javascript" src={{ asset('build/app.js') }}></script>
+        <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+    {% endblock %}
+</head>
+
+<header class="container-fluid">
+
+    <div id="cadreonglet">
+        <a href="{{ path('user') }}"><img src="/img/logo11-final.png" id="logo" /></a>
+        <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
+        <span id="liens">
+
+            <a>Bienvenue {{ app.user.username }} !</a>
+            <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+
+                    </span>
+    </div>
+</header>
+
+
+{% block body %}
+<nav>
+    <ul id="menu">
+        <a href="{{ path('product') }}"><li>NOS PRODUITS</li></a>
+        <li>QUI SOMMES NOUS</li>
+        <li>CONTACT</li>
+    </ul>
+</nav>
+
+<div id="header2">
+    <div id="imageRecherche">
+        <h2 id="cherchezVous">Que Recherchez vous?</h2>
+        <div id="inputSearch">
+            <input id="search" type="search" placeholder=" Carotte,Lait,Poulet..." >
+            <input id="search2" type="search" placeholder=" Où cherchez vous?" >
+            <button  id="submite" type="submit" ></button>
+        </div>
+    </div>
+</div>
+<h2 id="produitMoment">LES PRODUITS DU MOMENT:</h2>
+
+<div id="imageMoment">
+
+    <img  src="/img/fromage.png" id="fromage"/>
+
+    <img src="/img/oeuf.png" id="oeuf"/>
+
+    <img src="/img/tomate.png" id="tomate"/>
+
+</div>
+
+<div id="separator">
+    <img src="/img/separateur.png">
+</div>
+
+<h1 id="what">COMMENT ÇA MARCHE ?</h1>
+<div id="texta">
+    Nous mettons à disposition des produits qui sont destinée à la poubelle. <br/>
+    Nos produits sont des surplus d'artisans, agriculteurs ect.. </div>
+
+<div id="savoirplus">
+    <a id="plus" href="{{ path('aboutus') }}">EN SAVOIR +</a>
+</div>
+
+<div id="separator">
+    <img src="/img/separateur.png">
+</div>
+<div id="illu">
+    <img src="/img/illuchaine.png">
+</div>
+
+
+{% endblock %}
+
+<footer id="footer" class="container-fluid">
+    <div id="menubasdepage" class="row">
+        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter">À PROPOS</p><br/><p id="titresfooter">QUI SOMMES NOUS? </p><br/><p id="titresfooter"> CONTACTEZ-NOUS </p><br/><p id="titresfooter">PARTENAIRES</p><br/>
+        </div>
+        <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
+        </div>
+        <div id="carte" class="offset-lg-2 col-sm-4 col-lg-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41101.894107878936!2d1.0484701373485654!3d49.920045177734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0a207670619f9%3A0xaea20a3d78418545!2s76200+Dieppe!5e0!3m2!1sfr!2sfr!4v1527500300813" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</footer>
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+{% endblock %}
+</body>
+</html>

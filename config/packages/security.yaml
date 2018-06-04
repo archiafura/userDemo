@@ -14,6 +14,8 @@ security:
         main:
             # les urls auxquels s'appliquent ce firewall, dans ce cas, ce sont toutes les urls
             pattern: ^/
+            http_basic: ~
+            provider: database_users
 
             # La connexion n'est pas requise sur toutes les pages
             # par exemple la page d'accueil
@@ -29,7 +31,7 @@ security:
                 # Securisation des formulaires
                 csrf_token_generator: security.csrf.token_manager
                 # La page par defaut apres une connexion reussie
-                default_target_path: admin
+                default_target_path: user
 
             logout:
                 # La route où se trouve le process de deconnexion
@@ -42,3 +44,4 @@ security:
         # Là dans ce cas seul les utilisateurs ayant le rôle ROLE_ADMIN
         # peuvent acceder à toutes les pages commençant par /admin
         - { path: '^/admin', roles: ROLE_ADMIN }
+        - {path: '^/user', roles: ROLE_USER }

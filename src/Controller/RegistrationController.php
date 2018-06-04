@@ -17,7 +17,7 @@ class RegistrationController extends Controller
     /**
      * @Route("/register", name="user_registration")
      */
-    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, EventDispatcherInterface $eventDispatcher)
+    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, EventDispatcherInterface $eventDispatcher, \Swift_Mailer $mailer  )
     {
     
         $user = new User();
@@ -41,7 +41,19 @@ class RegistrationController extends Controller
             $event = new GenericEvent($user);
             $eventDispatcher->dispatch(Events::USER_REGISTERED, $event);
 
-            return $this->redirectToRoute('security_login');
+
+            /*
+            //On envoie un mail
+            $message = (new \Swift_Message('You Got Mail!'))
+                ->setFrom($contactFormData['from'])
+                ->setTo('doris.gane@free.fr')
+                ->setBody($contactFormData['message'], 'text/plain' );
+            $mailer->send($message);
+
+        */
+
+
+            return $this->redirectToRoute('great');
         }
 
         return $this->render(

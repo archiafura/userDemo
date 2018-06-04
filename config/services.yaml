@@ -2,10 +2,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'fr'
-    app.notifications.email_sender: g.ponty@dev-web.io
+    app.notifications.email_sender: paniermalin@newsletter.fr
 
 services:
-    # default configuration for services in *this* file
+
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.

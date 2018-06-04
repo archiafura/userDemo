@@ -2,6 +2,7 @@
 
 {% block body %}
     Bienvenue {{ app.user.username }} !
-        
+    <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+
 {% endblock %}
 

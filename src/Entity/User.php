@@ -2,6 +2,8 @@
 // /src/Entity/User.php
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -10,8 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="user")
- * @UniqueEntity(fields="email", message="Email déjà pris")
- * @UniqueEntity(fields="username", message="Username déjà pris")
+ * @UniqueEntity(fields="email", message="Cet email existe déjà")
+ * @UniqueEntity(fields="username", message="Ce pseudo existe déjà")
  */
 class User implements UserInterface, \Serializable
 {
@@ -31,6 +33,33 @@ class User implements UserInterface, \Serializable
      * @Assert\NotBlank()
      */
     private $fullName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+
+    private $lastname;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+    private $adress;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     */
+    private $zip;
 
     /**
      * @var string
@@ -63,6 +92,13 @@ class User implements UserInterface, \Serializable
      */
     private $roles = [];
 
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+        $this->user_collaboratif = new ArrayCollection();
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -77,6 +113,41 @@ class User implements UserInterface, \Serializable
     public function getFullName(): ?string
     {
         return $this->fullName;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+
+    public function setLastname(string $lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+
+    public function setAdress(string $adress): void
+    {
+        $this->adress = $adress;
+    }
+
+
+    public function getZip(): ?int
+    {
+        return $this->zip;
+    }
+
+
+    public function setZip(int $zip): void
+    {
+        $this->zip = $zip;
     }
 
     public function getUsername(): ?string
@@ -170,4 +241,7 @@ class User implements UserInterface, \Serializable
     {
         [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
     }
+
+
+
 }
