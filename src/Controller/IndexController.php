@@ -5,6 +5,9 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Product;
+
+
 
 class IndexController extends Controller
 {
@@ -79,8 +82,10 @@ class IndexController extends Controller
 
     public function show()
     {
-
-        return $this->render('User/product.html.twig');
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->findAll();
+        return $this->render('User/product.html.twig', ['product' => $product]);
     }
 
 
