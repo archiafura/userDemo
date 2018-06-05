@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container-fluid">
+        <main>
+            {{ form_start(formulaire) }}
+            <div class="row">
+                <div class="offset-lg-1 col-sm-10 col-lg-10">
+                    <h1>Contactez-Nous</h1>
+                    <div id="rosetableau">
+                        <label for="prénom">Prénom</label><br/>
+                        {{ form_errors(formulaire.prenom) }}
+                        {{ form_widget(formulaire.prenom) }}
+                        <label for="nom">Nom</label><br/>
+                        {{ form_errors(formulaire.nom) }}
+                        {{ form_widget(formulaire.nom) }}
+                        <label for="email">E-mail</label><br/>
+                        {{ form_errors(formulaire.email) }}
+                        {{ form_widget(formulaire.email) }}
+                        <label for="message">Votre message</label><br/>
+                        {{ form_errors(formulaire.message) }}
+                        {{ form_widget(formulaire.message) }}<br/>
+                        {{ form_widget(formulaire.envoyer) }}
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formulaire) }}
+        </main>
+    </div>
+{% endblock %}
