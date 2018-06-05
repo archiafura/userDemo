@@ -92,12 +92,13 @@ class User implements UserInterface, \Serializable
      */
     private $roles = [];
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Panier", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $panier;
 
-    public function __construct()
-    {
-        $this->product = new ArrayCollection();
-        $this->user_collaboratif = new ArrayCollection();
-    }
+
+
 
     public function getId(): int
     {
@@ -240,6 +241,24 @@ class User implements UserInterface, \Serializable
     public function unserialize($serialized): void
     {
         [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    public function getPanier(): ?Panier
+    {
+        return $this->panier;
+    }
+
+    public function setPanier(?Panier $panier): self
+    {
+        $this->panier = $panier;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = $panier === null ? null : $this;
+        if ($newUser !== $panier->getUser()) {
+            $panier->setUser($newUser);
+        }
+
+        return $this;
     }
 
 

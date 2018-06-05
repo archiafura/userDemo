@@ -25,15 +25,16 @@
 </header>
 
 {% block body %}
+{% for product in products %}
 
-    <ul>
-        {% for products in products %}
+    {{ product.id }}
+
+    {% endfor %}
 
 
-        <li>{{ products.description }}</li>
-        {% endfor %}
 
-    </ul>
+
+    <a href="{{ path('addproduct')}}">Ajouter produits</a>
 
 {% endblock %}
 <footer id="footer" class="container-fluid">

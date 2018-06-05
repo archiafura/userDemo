@@ -21,18 +21,25 @@ use Doctrine\ORM\EntityRepository;
 
 class ProductRepository extends EntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(RegistryInterface $product)
     {
-        parent::__construct($registry, Product::class);
+        parent::__construct($product, Product::class);
     }
-
-    /**
-     * @param $product
-     * @return Product[] Returns an array of Product objects
-     */
-
-    public function findAll() : array
-    {
+//
+//    /**
+//     * @param $products
+//     * @return Product[]
+//     */
+//
+//    public function findAll($products) : array
+//    {
+//        $products = $this->getDoctrine()
+//            ->getRepository(Product::class)
+//            ->findAll();
+//
+//
+//
+//    }
 
         /*
         $result = $this->createQueryBuilder('p')
@@ -47,6 +54,8 @@ class ProductRepository extends EntityRepository
        return array("getResult" => $result->getResult(), "getArrayResult" => $result->getArrayResult(),);
 
         */
+
+        /*
         $conn = $this->getEntityManager()->getConnection();
 
         $sql = '
@@ -64,7 +73,7 @@ class ProductRepository extends EntityRepository
 
 
     }
-
+*/
 
     /*
     public function findOneBySomeField($value): ?Product
