@@ -25,13 +25,16 @@
 </header>
 
 {% block body %}
-{% for product in products %}
 
-    {{ product.id }}
-
+    {% for prod in product %}
+        <p>{{ prod.name }}</p>
+        <p>{{ prod.quantity }}</p>
+        <p>{{ prod.fournisseur }}</p>
+        <p>{{ prod.description }}</p>
+        <p>{{ prod.price }}</p>
     {% endfor %}
 
-
+{#{{ product }}#}
 
 
     <a href="{{ path('addproduct')}}">Ajouter produits</a>
