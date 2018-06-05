@@ -9,6 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+
+
 
 class ProductController extends AbstractController
 {
@@ -17,15 +23,14 @@ class ProductController extends AbstractController
      */
     public function show()
     {
-
-//        $product = $this->getDoctrine()
-//            ->getRepository(Product::class)
-//
-//            ->findAll();
-
-    $products = 'truc';
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->findAll();
 
 
-        return $this->render('User/product.html.twig', ['product' => $products]);
+
+        return $this->render('User/product.html.twig', ['product' => $product]);
+
+
     }
 }
