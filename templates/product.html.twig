@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for prod in product %}
+        <p>{{ prod.name }}</p>
+        <p>{{ prod.quantity }}</p>
+        <p>{{ prod.fournisseur }}</p>
+        <p>{{ prod.description }}</p>
+        <p>{{ prod.price }}</p>
+    {% endfor %}
+
+    {#{{ product }}#}
+
+    <div id="cartedetail">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d469239.2436711583!2d0.5496573213998236!3d49.4806328517927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sagriculteurs!5e0!3m2!1sfr!2sfr!4v1527595118571" width="1200" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    </div>
+
+    <div id="separator">
+        <img src="/img/separateur.png">
+    </div>
+
+    <div id="carrevert">
+        <img src="/img/barquettes-fraises.png" id="barquettesfraises">
+        <div id="texteinterieur">
+            <h1>FRAISES</h1>
+            <h2>6 Kilos</h2>
+            <h2>Fraise des bois Canton à 6Km</h2>
+            <blockquote cite="Fraise idéale pour confiture"></blockquote>
+        </div>
+    </div>
+
+    <div id="separator">
+        <img src="/img/separateur.png">
+    </div>
+
+    <div id="carrevert">
+        <img src="/img/barquette.png" id="barquettesfraises">
+        <div id="texteinterieur">
+            <h1>FRAISES</h1>
+            <h2>4 Kilos</h2>
+            <h2>Fraises utilisées pour yaourts à Dieppe à 2Km</h2>
+            <blockquote cite="Fraise idéale pour confiture"></blockquote>
+        </div>
+    </div>
+
+    <div id="separator">
+        <img src="/img/separateur.png">
+    </div>
+
+    <div id="carrevert">
+        <img src="/img/barquettes-fraises.png" id="barquettesfraises">
+        <div id="texteinterieur">
+            <h1>FRAISES</h1>
+            <h2>10 Kilos</h2>
+            <h2>Fraises utilisées pour yaourts à Rouen à 20Km</h2>
+            <blockquote cite="Fraise idéale pour confiture"></blockquote>
+        </div>
+    </div>
+
+
+    <div id="separator">
+        <img src="/img/separateur.png">
+    </div>
+    </main>
+
+
+
+{% endblock %}
+

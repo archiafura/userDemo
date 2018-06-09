@@ -77,7 +77,7 @@ class IndexController extends Controller
     }
 
     /**
-     * @Route("/product", name="product")
+     * @Route("/product", name="user_product")
      */
 
     public function show()
@@ -85,8 +85,32 @@ class IndexController extends Controller
         $product = $this->getDoctrine()
             ->getRepository(Product::class)
             ->findAll();
-        return $this->render('User/product.html.twig', ['product' => $product]);
+
+
+
+            return $this->render('User/product.html.twig', ['product' => $product]);
+
+        }
+
+
+    /**
+     * @Route("/product", name="product")
+     */
+
+    public function product()
+    {
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->findAll();
+
+
+
+        return $this->render('product.html.twig', ['product' => $product]);
+
     }
+
+
+
 
 
 

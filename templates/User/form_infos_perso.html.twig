@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Paniermalin{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script type="text/javascript" src={{ asset('build/app.js') }}></script>
+        <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+    {% endblock %}
+</head>
+
+<header class="container-fluid">
+
+    <div id="cadreonglet">
+        <a href="{{ path('user') }}"><img src="/img/logo11-final.png" id="logo" /></a>
+        <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
+        <span id="liens">
+
+            <a>Bienvenue {{ app.user.username }} !</a>
+            <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+
+                    </span>
+    </div>
+</header>
+
+{% block body %}
+    <div class="container-fluid">
+        <main>
+            {{ form_start(formulaire) }}
+            <div class="row">
+
+
+                <div class="col-sm-12 col-lg-2">
+                    <h3>Mes infos</h3>
+                    <div id="rosecompte">
+                        <label id="eperso" for="prénom">Prénom</label>
+                        {{ form_errors(formulaire.prenominfos) }}
+                        {{ form_widget(formulaire.prenominfos) }}
+                        <label id="eperso" for="nom">Nom</label>
+                        {{ form_errors(formulaire.nominfos) }}
+                        {{ form_widget(formulaire.nominfos) }}
+                        <label id="eperso" for="tel">Tél</label>
+                        {{ form_errors(formulaire.telephone) }}
+                        {{ form_widget(formulaire.telephone) }}
+                        <label id="eperso" for="Email">E-mail</label>
+                        {{ form_errors(formulaire.emailinfos) }}
+                        {{ form_widget(formulaire.emailinfos) }}
+                        <label id="eperso" for="mdp">Mot de passe</label>
+                        {{ form_errors(formulaire.mdpinfos) }}
+                        {{ form_widget(formulaire.mdpinfos) }}
+                        <label id="eperso" for="cmdp">Confirmation du mot de passe</label>
+                        {{ form_errors(formulaire.confirmmdpinfos) }}
+                        {{ form_widget(formulaire.confirmmdpinfos) }}
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-sm-12 col-lg-5">
+                    <h3>Mon Tableau de bord</h3>
+                    <div id="rosetableau">
+                        <p id="bienvenue">Bonjour, @UTILISATEUR !
+                            Depuis le tableau de bord 'Mon compte', vous pouvez avoir un aperçu de vos récentes activités et mettre à jour les informations de votre compte. Sélectionnez un cadre sur cette page pour voir ou modifier les informations.</p>
+                        <h4>Mes infos de contact</h4>
+                        <p>Nom</p>
+                        <p>Prénom</p>
+                        <p>E-mail</p>
+                        <p>Tél</p>
+                        <h4>Carnet d'adresses</h4>
+                        <h5>Adresse de livraison</h5>
+                        <div id="gauche">
+                            <p>Nom</p>
+                            <p>Prénom</p>
+                            <p>Adresse</p>
+                        </div>
+                        <div id="droite">
+                            <p>Ville</p>
+                            <p>Code postal</p>
+                        </div>
+                        <h5>Adresse de facturation</h5>
+                        <div id="gauche">
+                            <p>Nom</p>
+                            <p>Prénom</p>
+                            <p>Adresse</p>
+                        </div>
+                        <div id="droite">
+                            <p>Ville</p>
+                            <p>Code postal</p>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="offset-lg-1 col-sm-12 col-lg-3">
+                    <h3>ADRESSE DE LIVRAISON</h3>
+                    <div id="vert">
+
+                        <article>
+                            <label id="eperso" for="prénom">Prénom</label>
+                            {{ form_errors(formulaire.prenomlivraison) }}
+                            {{ form_widget(formulaire.prenomlivraison) }}
+                            <label id="eperso" for="nom">Nom</label>
+                            {{ form_errors(formulaire.nomlivraison) }}
+                            {{ form_widget(formulaire.nomlivraison) }}
+                            <label id="eperso" for="adresse">Adresse de livraison</label>
+                            {{ form_errors(formulaire.livraison) }}
+                            {{ form_widget(formulaire.livraison) }}
+
+                            <label id="eperso" for="cp">Code Postal</label>
+                            {{ form_errors(formulaire.cplivraison) }}
+                            {{ form_widget(formulaire.cplivraison) }}
+                            <label id="eperso" for="ville">Ville</label>
+                            {{ form_errors(formulaire.villelivraison) }}
+                            {{ form_widget(formulaire.villelivraison) }}
+
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div id="vertbutton" class="col-sm-12 col-lg-2">
+                    {{ form_widget(formulaire.envoyer, { 'label': 'Mettre à jour les infos' }) }}
+                </div>
+                <div class="offset-lg-1 col-sm-12 col-lg-5">
+                    <h3 id="historique">Historique des mes commandes</h3>
+                    <div id="rose">
+                        <hr/>
+                        <h3>commande #1</h3>
+                        <p>Détail de ma commande</p>
+                        <hr/>
+                        <h3>Facture #1</h3>
+                        <p>Détail de ma facture #1</p>
+                        <hr/>
+
+
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-sm-12 col-lg-3">
+                    <h3>ADRESSE DE FACTURATION</h3>
+                    <div id="vertfacture">
+
+                        <article>
+                            <label id="eperso" for="prénom">Prénom</label>
+                            {{ form_errors(formulaire.prenomfacturation) }}
+                            {{ form_widget(formulaire.prenomfacturation) }}
+                            <label id="eperso" for="nom">Nom</label>
+                            {{ form_errors(formulaire.nomfacturation) }}
+                            {{ form_widget(formulaire.nomfacturation) }}
+
+                            <label id="eperso" for="adresse">Adresse de facturation</label>
+                            {{ form_errors(formulaire.facturation) }}
+                            {{ form_widget(formulaire.facturation) }}
+                            <label id="eperso" for="cp">Code Postal</label>
+                            {{ form_errors(formulaire.cpfacturation) }}
+                            {{ form_widget(formulaire.cpfacturation) }}
+
+                            <label id="eperso" for="ville">Ville</label>
+                            {{ form_errors(formulaire.villefacturation) }}
+                            {{ form_widget(formulaire.villefacturation) }}
+                        </article>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formulaire) }}
+        </main>
+    </div>
+{% endblock %}
+<footer id="footer" class="container-fluid">
+    <div id="menubasdepage" class="row">
+        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter">À PROPOS</p><br/><p id="titresfooter">QUI SOMMES NOUS? </p><br/><p id="titresfooter"> CONTACTEZ-NOUS </p><br/><p id="titresfooter">PARTENAIRES</p><br/>
+        </div>
+        <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
+        </div>
+        <div id="carte" class="offset-lg-2 col-sm-4 col-lg-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41101.894107878936!2d1.0484701373485654!3d49.920045177734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0a207670619f9%3A0xaea20a3d78418545!2s76200+Dieppe!5e0!3m2!1sfr!2sfr!4v1527500300813" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</footer>
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+{% endblock %}
+</body>
+</html>
