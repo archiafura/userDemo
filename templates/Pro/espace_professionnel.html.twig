@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Paniermalin{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script type="text/javascript" src={{ asset('build/app.js') }}></script>
+        <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+    {% endblock %}
+</head>
+
+<header class="container-fluid">
+
+    <div id="cadreonglet">
+        <a href="{{ path('pro') }}"><img src="/img/logo11-final.png" id="logo" /></a>
+        <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
+        <span id="liens">
+
+            <a>Bienvenue {{ app.user.username }} !</a>
+            <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+
+                    </span>
+    </div>
+</header>
+
+
+{% block body %}
+
+    <main id="conteneurEspacePro" >
+
+        <section id="sectionEProLeft">
+            <article id="articleProLeft">
+                <p class="titreArticlePro">
+                    mes infos:
+                </p>
+                <div id="infoPro">
+                    <p class="infoProText">nom:</p>
+                    <p class="infoProText">prenom:</p>
+                    <p class="infoProText">categorie:</p>
+                    <p class="infoProText">localisation:</p>
+                    <p class="infoProText">numero:</p>
+                    <p class="infoProText">livraison:</p>
+                </div>
+                <button id="MAJinfosPro"> mettre a jour les infos</button>
+            </article>
+        </section>
+
+        <section id="sectionEProMiddle">
+            <article id="articleProMiddle">
+                <p class="titreArticlePro">
+                    produits disponible:
+                </p>
+                <div id="produitDispoPro">
+                    <div class="pdtPro">
+                        <img class="imgPdtPro" src="/img/strawberry.png">
+                        <div class="descriptionPdtPro">
+                            <h4 class="titrePdtPro">Fraise</h4>
+                            <p class="txtPdt">10 kg</p>
+                            <p class="txtPdt">05/07/2018</p>
+                            <p class="txtPdt">parfaite pour des confiture....</p>
+                        </div>
+                    </div>
+                    <div class="pdtPro">
+                        <img class="imgPdtPro" src="/img/strawberry.png">
+                        <div class="descriptionPdtPro">
+                            <h4 class="titrePdtPro">Fraise</h4>
+                            <p class="txtPdt">10 kg</p>
+                            <p class="txtPdt">05/07/2018</p>
+                            <p class="txtPdt">parfaite pour des confiture....</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="eventDispoPro">
+                <p class="titreArticlePro">
+                    evenements disponible:
+                </p>
+                <div id="listeEventDispo">
+                    <h4 class="titrePdtPro">Marché:</h4>
+                    <p class="txtEvent">dates:</p>
+                    <p class="txtEvent">horaires:</p>
+                    <p class="txtEvent">lieux:</p>
+                    <p class="txtEvent">Produits proposé</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="sectionEProRight">
+            <p class="titreArticlePro">
+                ajouter un produit
+            </p>
+            <article id="articleProRight">
+
+                <div id="addProduitPro">
+
+                    {{ form_start(formulaireProduit) }}
+                    {{ form_widget(formulaireProduit) }}
+                    {{ form_end(formulaireProduit) }}
+                </div>
+            </article>
+
+            <p class="titreArticlePro">
+                ajouter un evenement
+            </p>
+            <article id="eventProRight">
+                <div id="addProduitPro">
+
+                    {{ form_start(formulaireEvent) }}
+                    {{ form_widget(formulaireEvent) }}
+                    {{ form_end(formulaireEvent) }}
+                </div>
+
+            </article>
+        </section>
+
+    </main>
+
+{% endblock %}
+<footer id="footer" class="container-fluid">
+    <div id="menubasdepage" class="row">
+        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter">À PROPOS</p><br/><p id="titresfooter">QUI SOMMES NOUS? </p><br/><p id="titresfooter"> CONTACTEZ-NOUS </p><br/><p id="titresfooter">PARTENAIRES</p><br/>
+        </div>
+        <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
+        </div>
+        <div id="carte" class="offset-lg-2 col-sm-4 col-lg-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41101.894107878936!2d1.0484701373485654!3d49.920045177734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0a207670619f9%3A0xaea20a3d78418545!2s76200+Dieppe!5e0!3m2!1sfr!2sfr!4v1527500300813" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</footer>
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+{% endblock %}

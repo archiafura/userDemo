@@ -46,10 +46,28 @@ class IndexController extends Controller
             return $this->render('User/great.html.twig');
         }
 
+
         else{
             return $this->render('Admin/great.html.twig');
         }
     }
+
+    /**
+     * @Route("pro/great", name="pro_great")
+     */
+
+    public function progreat()
+    {
+        if ($roles[] = 'ROLE_PRO') {
+            return $this->render('User/Pro/great.html.twig');
+        }
+
+
+        else{
+            return $this->render('Admin/great.html.twig');
+        }
+    }
+
 
     /**
      * @Route("/aboutus", name="aboutus")
@@ -107,6 +125,14 @@ class IndexController extends Controller
 
         return $this->render('product.html.twig', ['product' => $product]);
 
+    }
+
+    /**
+     * @Route("/pro", name="pro")
+     */
+    public function pro()
+    {
+        return $this->render('Pro/index.html.twig');
     }
 
 
