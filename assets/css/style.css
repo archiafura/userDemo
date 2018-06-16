@@ -533,34 +533,48 @@ li:hover {
 
 /*............DORIS..........*/
 
-#inscform{
-    margin-top: 5px;
-    border: 2px solid #62cb40;
-    border-radius: 15px;
-    background-color: #62cb40;
-    text-align: center;
-    margin: 5%;
+/*........register...........*/
 
-
+#logoz{
+    width: 15%;
+    margin-bottom: 5%;
 }
 
-#form_nom, #form_email, #form_adresse, #form_pseudo, #form_mdp, #form_prenom, #form_zip, #form_statut, #form_interet{
-    display: flex;
-    flex-direction: column;
-    margin-left: 510px;
-
-
-}
 
 #titlinscript{
     text-align: center;
+    color: #67b825;
+    font-family:'dk_lemon_yellow_sunregular' ;
 }
 
+#twigform{
+    background-color: #67b825;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
 
-h5{
-    font-family: 'moon_flowerregular';
+}
+
+#itsok{
+    margin-left: 200px;
+    background-color: #afd9ee;
+}
+
+td{
+    color: #cccccc;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 15pt;
+    font-family: "dk_lemon_yellow_sunregular", "Helvetica", "Arial";
+}
+
+/*............Login..........*/
+
+#logform{
+    background-color: #67b825;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 10%;
 }
 
 #carte{
@@ -592,6 +606,9 @@ h5{
     color: white;
 }
 
+
+
+/*................Fin Doris..........*/
 
 #rose {
     background-color: #fce0e0;

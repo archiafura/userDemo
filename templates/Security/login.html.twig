@@ -1,6 +1,25 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{% block title %}Paniermalin{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script type="text/javascript" src={{ asset('build/app.js') }}></script>
+        <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
 
 {% block body %}
+
+    <div >
+        <a  href="{{ path('index') }}"><img src="/img/logo11-final.png" id="logoz" /></a>
+    </div>
+
+
     {% if error %}
         <div class="alert alert-danger">
             {{ error.messageKey }}
@@ -11,10 +30,12 @@
         <div class="col-sm-5" id="inscform">
             <div class="well">
                 <form action="{{ path('security_login') }}" method="post">
-                    <fieldset>
-                        <legend><i class="fa fa-lock" aria-hidden="true"></i> Connexion</legend>
+
+                    <h1 id="titlinscript" class="text-center"> Connexion</h1>
+                    <fieldset id="logform">
+
                         <div class="form-group" >
-                            <label for="username">Username</label>
+                            <label for="username">Pseudo</label>
                             <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
                         </div>
                         <div class="form-group">
@@ -24,14 +45,22 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
 
 
-                        <button type="submit" class="btn btn-primary">
+                        <button  type="submit" class="btn btn-primary">
                             <i class="fa fa-sign-in" aria-hidden="true"></i> Se connecter
                         </button>
                     </fieldset>
                 </form>
             </div>
         </div>
-
+    </div>
         
 {% endblock %}
 
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+{% endblock %}
+</body>
+</html>

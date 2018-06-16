@@ -22,6 +22,8 @@ class SecurityController extends AbstractController
         ]);
     }
 
+
+
     /**
      * La route pour se deconnecter.
      * 

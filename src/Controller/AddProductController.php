@@ -32,7 +32,7 @@ class AddProductController extends Controller
 
 
 
-        return $this->render('User/addproduct.html.twig',
+        return $this->render('Pro/addproduct.html.twig',
             array('form' => $form->createView()));
     }
 }

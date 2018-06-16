@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,31 +23,18 @@
                     </span>
     </div>
 </header>
-
-
 {% block body %}
-    <nav>
-        <ul id="menu">
-            <a href="{{ path('productpro') }}"><li>MES PRODUITS EN VENTE</li></a>
-            <li>MES CLIENTS</li>
-            <a href="{{ path('espace_professionnel_formulaire') }}"><li>TABLEAU DE BORD</li></a>
-            <a href="{{ path('contact_formulaire') }}" ><li>CONTACT</li></a>
-        </ul>
-    </nav>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.quantity) }}
+    {{ form_row(form.fournisseur) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.price) }}
 
-    <div id="header2">
-        <div id="imageRecherche">
-            <h2 id="cherchezVous">Que Recherchez vous?</h2>
-            <div id="inputSearch">
-                <input id="search" type="search" placeholder=" Carotte,Lait,Poulet..." >
-                <input id="search2" type="search" placeholder=" Où cherchez vous?" >
-                <button  id="submite" type="submit" ></button>
-            </div>
-        </div>
-    </div>
 
+    <button type="submit">Ajouter !</button>
+    {{ form_end(form) }}
 {% endblock %}
-
 <footer id="footer" class="container-fluid">
     <div id="menubasdepage" class="row">
         <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter">À PROPOS</p><br/><p id="titresfooter">QUI SOMMES NOUS? </p><br/><p id="titresfooter"> CONTACTEZ-NOUS </p><br/><p id="titresfooter">PARTENAIRES</p><br/>
@@ -66,3 +52,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 {% endblock %}
+</body>

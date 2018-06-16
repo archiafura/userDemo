@@ -97,6 +97,31 @@ class User implements UserInterface, \Serializable
      */
     private $panier;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $genre;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $birthday;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $tel;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $newletter;
+
 
 
 
@@ -257,6 +282,66 @@ class User implements UserInterface, \Serializable
         if ($newUser !== $panier->getUser()) {
             $panier->setUser($newUser);
         }
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(string $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?\DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(\DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    public function getTel(): ?int
+    {
+        return $this->tel;
+    }
+
+    public function setTel(int $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getNewletter(): ?bool
+    {
+        return $this->newletter;
+    }
+
+    public function setNewletter(bool $newletter): self
+    {
+        $this->newletter = $newletter;
 
         return $this;
     }

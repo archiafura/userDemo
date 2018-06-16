@@ -91,7 +91,7 @@ class IndexController extends Controller
      */
     public function addproduct()
     {
-        return $this->render('User/addproduct.html.twig');
+        return $this->render('Pro/addproduct.html.twig');
     }
 
     /**
@@ -135,8 +135,13 @@ class IndexController extends Controller
         return $this->render('Pro/index.html.twig');
     }
 
-
-
+    /**
+     * @Route("/logincheck", name="logincheck")
+     */
+    public function logincheck()
+    {
+        return $this->render('Security/logincheck.html.twig');
+    }
 
 
 

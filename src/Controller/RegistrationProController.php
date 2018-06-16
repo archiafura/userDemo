@@ -2,7 +2,7 @@
 // src/Controller/RegistrationController.php
 namespace App\Controller;
 
-use
+
 use App\Form\UserType;
 use App\Entity\User;
 use App\Events;

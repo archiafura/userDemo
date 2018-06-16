@@ -13,7 +13,7 @@
 <header class="container-fluid">
 
     <div id="cadreonglet">
-        <a href="{{ path('user') }}"><img src="/img/logo11-final.png" id="logo" /></a>
+        <a href="{{ path('pro') }}"><img src="/img/logo11-final.png" id="logo" /></a>
         <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
         <span id="liens">
 
@@ -23,17 +23,22 @@
                     </span>
     </div>
 </header>
+
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.quantity) }}
-    {{ form_row(form.fournisseur) }}
-    {{ form_row(form.description) }}
-    {{ form_row(form.price) }}
+
+    {% for prod in product %}
+        <p>{{ prod.name }}</p>
+        <p>{{ prod.quantity }}</p>
+        <p>{{ prod.fournisseur }}</p>
+        <p>{{ prod.description }}</p>
+        <p>{{ prod.price }}</p>
+    {% endfor %}
+
+    {#{{ product }}#}
 
 
-    <button type="submit">Ajouter !</button>
-    {{ form_end(form) }}
+    <a href="{{ path('addproduct')}}">Ajouter produits</a>
+
 {% endblock %}
 <footer id="footer" class="container-fluid">
     <div id="menubasdepage" class="row">
@@ -53,3 +58,4 @@
 
 {% endblock %}
 </body>
+</html>
