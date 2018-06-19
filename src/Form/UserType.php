@@ -34,7 +34,7 @@ class UserType extends AbstractType
             ->add('zip', NumberType::class , array('label' => 'Code Postal'))
             ->add('ville', TextType::class, array('label' => 'Ville'))
             ->add('newletter', CheckboxType::class, array('label' => 'Inscription à la newsletter', 'required' => false,))
-            ->add('roles', CollectionType::class, array('entry_type' =>  ChoiceType::class,
+            ->add('roles', CollectionType::class, array('label' => 'Statut','entry_type' =>  ChoiceType::class,
               'entry_options' =>  array( 'choices' => array (
                   'Particulier' => 'ROLE_USER' , 'Professionnel' => 'ROLE_PRO' ,),),))
             ->add('password', RepeatedType::class, array(

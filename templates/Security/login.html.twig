@@ -27,7 +27,7 @@
     {% endif %}
 
     <div class="row" >
-        <div class="col-sm-5" id="inscform">
+        <div class=" offset-3 col-sm-5" id="inscform">
             <div class="well">
                 <form action="{{ path('security_login') }}" method="post">
 
@@ -45,7 +45,7 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
 
 
-                        <button  type="submit" class="btn btn-primary">
+                        <button id="logbutton" type="submit" >
                             <i class="fa fa-sign-in" aria-hidden="true"></i> Se connecter
                         </button>
                     </fieldset>

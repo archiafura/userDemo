@@ -556,15 +556,20 @@ li:hover {
 }
 
 #itsok{
-    margin-left: 200px;
-    background-color: #afd9ee;
+    margin-left: 300px;
+    background-color: ghostwhite;
+    font-family: robotoregular;
+    color: #67b825;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 7px;
 }
 
 td{
-    color: #cccccc;
+    color: ghostwhite;
     font-weight: bold;
     font-size: 15pt;
-    font-family: "dk_lemon_yellow_sunregular", "Helvetica", "Arial";
+    font-family: "robotoregular";
 }
 
 /*............Login..........*/
@@ -575,7 +580,39 @@ td{
     margin-left: 20%;
     margin-right: 20%;
     padding: 10%;
+    color: ghostwhite;
+    font-weight: bold;
 }
+
+#logbutton{
+    background-color: #67b825;
+    border-color: whitesmoke;
+    font-size: 15pt;
+    margin-top: 7%;
+    margin-left: 17%;
+    color:ghostwhite;
+}
+
+
+
+/*.........Charte.....*/
+
+#charte{
+    background-color: rgba(119, 240, 21, 0.34);
+    border-radius: 35px;
+    margin: 10%;
+    padding: 2%;
+    font-family: robotoregular;
+    font-size: 20pt;
+}
+
+#chartitle{
+    font-family: dk_lemon_yellow_sunregular;
+
+}
+
+
+/*................Fin Doris..........*/
 
 #carte{
     height: auto;
@@ -608,7 +645,7 @@ td{
 
 
 
-/*................Fin Doris..........*/
+
 
 #rose {
     background-color: #fce0e0;

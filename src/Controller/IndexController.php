@@ -143,6 +143,13 @@ class IndexController extends Controller
         return $this->render('Security/logincheck.html.twig');
     }
 
+    /**
+     * @Route("/charte", name="charte")
+     */
+    public function charte()
+    {
+        return $this->render('charte.html.twig');
+    }
 
 
 }
