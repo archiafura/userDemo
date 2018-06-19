@@ -19,7 +19,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product", name="user_product")
+     * @Route("User/product", name="user_product")
      */
     public function show()
     {

@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% trans_default_domain 'app' %}
+
 
     <nav>
         <ul id="menu">
-            <li><a href="{{ path('product') }}" > NOS PRODUITS </a></li>
+
+            <li><a href="{{ path('product') }}" > NOS PRODUITS</a></li>
             <li><a href="{{ path('charte') }}" >QUI SOMMES NOUS </a></li>
             <li> <a href="{{ path('pro') }}">ESPACE PRO</a></li>
             <li><a href="{{ path ('contact_formulaire') }}">CONTACT</a></li>
@@ -56,5 +57,6 @@
     <div id="illu">
         <img src="/img/illuchaine.png">
     </div>
+
 {% endblock %}
 
