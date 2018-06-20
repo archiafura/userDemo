@@ -30,10 +30,10 @@ class ContactController extends Controller
         $contactform = new contact();
 
         $formulaire = $this->createFormBuilder($contactform)
-            ->add('prenom', TextType::class, array('label' => 'PRENOM',)  )
-            ->add('nom', TextType::class, array('label' => 'NOM',)  )
-            ->add('email', EmailType::class, array('label' => 'EMAIL',)  )
-            ->add('message', TextareaType::class, array('label' => 'VOTRE MESSAGE', 'attr' => array('cols' => '100', 'rows' => '10'))  )
+            ->add('prenom', TextType::class, array('label' => 'PRENOM','attr' => array('class' => 'form-control'))  )
+            ->add('nom', TextType::class, array('label' => 'NOM','attr' => array('class' => 'form-control'))  )
+            ->add('email', EmailType::class, array('label' => 'EMAIL','attr' => array('class' => 'form-control'))  )
+            ->add('message', TextareaType::class, array('label' => 'VOTRE MESSAGE', 'attr' => array('cols' => '100', 'rows' => '10','class' => 'form-control'))  )
             ->add('envoyer', SubmitType::class, array('label' => "ENVOYER"))
             ->getForm();
 
