@@ -36,4 +36,18 @@ class SecurityController extends AbstractController
     {
         throw new \Exception('This should never be reached!');
     }
+
+    /**
+     * @Route("/forgetten", name="forgetten")
+     */
+    public function forgetten(AuthenticationUtils $helper): Response
+    {
+        return $this->render('Security/forgetten.html.twig', [
+
+            // La derniere erreur de connexion (si il y en a une)
+            'error' => $helper->getLastAuthenticationError(),
+        ]);
+    }
+
+
 }

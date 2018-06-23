@@ -29,25 +29,21 @@
     <div class="row" >
         <div class=" offset-3 col-sm-5" id="inscform">
             <div class="well">
-                <form action="{{ path('security_login') }}" method="post">
+                <form action="{{ path('forgetten') }}" method="post">
 
-                    <h1 id="titlinscript" class="text-center"> Connexion</h1>
+                    <h1 id="titlinscript" class="text-center"> Mot de passe oublié !</h1>
                     <fieldset id="logform">
 
                         <div class="form-group" >
-                            <label for="username">Pseudo</label>
-                            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                            <label for="username">email</label>
+                            <input type="text" id="adress" name="_adress" class="form-control"/>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" id="password" name="_password" class="form-control" />
-                            <a href="{{ 'forgetten' }}"><p>Mot de passe oublié?</p></a>
-                        </div>
+
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
 
 
                         <button id="logbutton" type="submit" >
-                            <i class="fa fa-sign-in" aria-hidden="true"></i> Se connecter
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> Envoyer
                         </button>
 
 
@@ -57,7 +53,7 @@
             </div>
         </div>
     </div>
-        
+
 {% endblock %}
 
 {% block javascripts %}

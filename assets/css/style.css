@@ -582,6 +582,7 @@ td{
     padding: 10%;
     color: ghostwhite;
     font-weight: bold;
+    list-style: none;
 }
 
 #logbutton{
@@ -609,6 +610,35 @@ td{
 #chartitle{
     font-family: dk_lemon_yellow_sunregular;
 
+}
+
+#imok{
+    color: darkorange;
+}
+
+/*............Rules..................*/
+
+#rules{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 10%;
+    padding: 0px 0px 25px 0px;
+    font-weight: bold;
+    color: grey;
+}
+
+#rulestitle{
+    background-color: chartreuse;
+    padding: 0;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#corpus{
+    margin-top: 5%;
+}
+
+.colorus{
+    color: chartreuse;
 }
 
 
