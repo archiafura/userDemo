@@ -169,5 +169,19 @@ class IndexController extends Controller
         return $this->render('charte.html.twig');
     }
 
+    /**
+     * @Route("/forgetten", name="forgetten")
+     */
+    public function forgetten()
+    {
+        return $this->render('Security/forgetten.html.twig');
+    }
 
+    /**
+     * @Route("/rules", name="rules")
+     */
+    public function rules()
+    {
+        return $this->render('rules.html.twig');
+    }
 }

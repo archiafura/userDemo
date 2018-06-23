@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{% block title %}Paniermalin{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script type="text/javascript" src={{ asset('build/app.js') }}></script>
+        <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+
+
+{% block body %}
+
+    <div >
+        <a  href="{{ path('index') }}"><img src="/img/logo11-final.png" id="logoz" /></a>
+    </div>
+
+    <section id="rules">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center" id="rulestitle">
+                <div class="container-fluid">
+                    <h2 class="section-heading text-uppercase" >La charte comportementale PANIER MALIN </h2>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="col-lg-12 text-center" id="corpus">
+                <h3>Partie 1 : Sens des responsabilités</h3><br><br>
+
+                Être livreur Panier Malin, c’est faire partie d’une communauté collaborative désireuse de révolutionner la livraison en proposant des déplacements optimisés, plus responsables et gagnants pour tous.
+
+                En tant que membre , vous êtes garants de la qualité de notre service et vous engagez à faire en sorte que la plateforme Panier Malin continue à offrir un service fiable, rapide et respectueux à l’égard de toutes les parties.<br>
+
+                L'objectif de la présente charte comportementale Panier malin est d’énoncer les commandements  à cet égard.<br><br>
+
+                <h5 class="colorus">Commandement 1 : Ponctualité</h5><br>
+
+                Je m’engage à respecter les horaires d’enlèvement et de livraison renseignés par les expéditeurs, ainsi que les instructions de livraison.<br><br>
+
+                <h5 class="colorus">Commandement 2 : Respect</h5><br>
+
+                J’apporte une vigilance toute particulière aux objets et colis dont on me confie la responsabilité. Je m’engage à les livrer dans l’état dans lequel ils me sont confiés, en bon temps et en bon lieu.<br><br>
+
+                <h5 class="colorus">Commandement 3 : Vigilance</h5><br>
+
+                Je m’engage à respecter le code de la route et à préserver la sécurité des usagers qui partagent mes trajets, peu importe mon moyen de transport.<br><br>
+
+                <h3>Partie 2 : Savoir-être</h3><br><br>
+
+                <h5 class="colorus">Commandement 1 : Bon relationnel</h5><br>
+
+                Je m’engage à soigner mes contacts - aussi bien physiques qu’à distance - avec les expéditeurs et destinataires des courses que je prends en charge, en gardant constamment une attitude courtoise et polie.<br><br>
+
+                <h5 class="colorus">Commandement 2 : Respect</h5><br>
+
+                J’apporte une vigilance toute particulière aux objets et colis dont on me confie la responsabilité. Je m’engage à les livrer dans l’état dans lequel ils me sont confiés, en bon temps et en bon lieu.<br><br>
+
+                <h5 class="colorus">Commandement 3 : Vigilance</h5><br>
+
+                Je m’engage à respecter le code de la route et à préserver la sécurité des usagers qui partagent mes trajets, peu importe mon moyen de transport.<br><br><br>
+
+            </div>
+            <div class="message col-lg-12 text-center" >
+                Vos envois sont assurés par la MAIF.
+            </div>
+
+
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -3,75 +3,73 @@
 {% block title %}Charte {% endblock %}
 
 {% block body %}
-<section id="charte">
-    <div  id="team">
 
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase" id="chartitle">Le gaspillage alimentaire</h2>
-                    <h3 class="section-subheading text-muted"></h3>
-
-                    <div>Le gaspillage alimentaire engendré par l’ensemble de la grande distribution  s’élèverait à 2,3 millions de tonnes par an.<br>
-                        Afin de pallier à ce problème qui indigne la population, des solutions voient peu à peu le jour.<br>
-                        Par exemple les chutes de viande à bas prix pour régaler les chiens ou les prix cassés sur les DLC courtes et achats maîtrisés.<br><br>
-                        Mais Les exigences de perfection et de calibrage des fruits et légumes; attendues des consommateurs et des distributeurs engendrent également un grand gâchis.<br>
-                        L’Union européenne a donc récemment simplifié les normes de commercialisation des fruits et légumes frais pour rendre une valeur à ceux qui, pour des raisons de forme ou d’aspect, n’arrivaient jusqu’alors même pas sur les étals.<br>
-                        Nous avons donc décider de prendre part à l'initiative en créant ce site qui a pour vocation de lister le stock des produits de nos partenaire qui risque de partir
-                        à la poubelle s'il ne trouve pas preneur.
-                        Tous les produits alimentaires proposés à la vente répondent aux normes sanitaires de consommation. Il ne s'agit en aucun pour nous de vendre des produits avariés.<br>
-                    </div>
-
-</div>
+    <section id="rules" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center" id="rulestitle">
+                <div class="container-fluid">
+                    <h2 class="section-heading text-uppercase" >Le gaspillage alimentaire </h2>
+                </div>
             </div>
-        </div>
+            <br><br>
 
 
-        <div id="separator">
-            <img src="/img/separateur.png">
-        </div>
+            <div class="col-lg-12 text-center" >
+
+                Le gaspillage alimentaire engendré par l’ensemble de la grande distribution  s’élèverait à 2,3 millions de tonnes par an.<br>
+                    Afin de pallier à ce problème qui indigne la population, des solutions voient peu à peu le jour.<br>
+                    Par exemple les chutes de viande à bas prix pour régaler les chiens ou les prix cassés sur les DLC courtes et achats maîtrisés.<br><br>
+                    Mais Les exigences de perfection et de calibrage des fruits et légumes; attendues des consommateurs et des distributeurs engendrent également un grand gâchis.<br>
+                    L’Union européenne a donc récemment simplifié les normes de commercialisation des fruits et légumes frais pour rendre une valeur à ceux qui, pour des raisons de forme ou d’aspect, n’arrivaient jusqu’alors même pas sur les étals.<br>
+                    Nous avons donc décider de prendre part à l'initiative en créant ce site qui a pour vocation de lister le stock des produits de nos partenaire qui risque de partir
+                    à la poubelle s'il ne trouve pas preneur.
+                    Tous les produits alimentaires proposés à la vente répondent aux normes sanitaires de consommation. Il ne s'agit en aucun pour nous de vendre des produits avariés.<br>
+            </div>
+
+            <div id="separator" class="col-lg-12 text-center">
+                <img src="/img/separateur.png">
+            </div>
 
 
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
 
-                                    <h2 class="section-heading text-uppercase" id="chartitle">Une démarche écologique</h2>
+                        <h2 class="section-heading text-uppercase" id="chartitle">Une démarche écologique</h2>
                         <h3 class="section-subheading text-muted"></h3>
 
-                                    <div class="container">Afin de privilégier un circuit-court de distribution nous favorisons lors de vos achats un mode de retrait directement au point de vente.<br>
-                                    Un système de drive a été mis en place avec les agriculteurs. Toutefois si vous ne pouvez pas vous déplacer , nous avons également mis en place une livraison collaborative.
-                                    </div>
+                        <div class="container">Afin de privilégier un circuit-court de distribution nous favorisons lors de vos achats un mode de retrait directement au point de vente.<br>
+                            Un système de drive a été mis en place avec les agriculteurs. Toutefois si vous ne pouvez pas vous déplacer , nous avons également mis en place une livraison collaborative.
+                        </div>
 
                     </div>
                 </div>
             </div>
 
 
-            <div id="separator">
+            <div id="separator" class="col-lg-12 text-center">
                 <img src="/img/separateur.png">
             </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase" id="chartitle">La livraison entre particuliers</h2>
-                <h3 class="section-subheading text-muted"></h3>
-<div>Afin de permettre aux utilisateurs n'ayant pas la possibilité de se déplacer pour récupérer leurs commandes de profiter également de nos services,
-    un système de livraison collaborative a été mise en place.<br>
-    Un acheteur a la possibilité de se porter volontaire pour la récupération des commandes des autres utilisateurs dans son secteur.<br>
-    Ainsi, celui-ci après avoir signé notre charte; s'assure que chaque client disposera de sa commande en effectuant les livraisons.<br>
-    Les acheteurs s'étant désignés comme étant volontaire pour effectuer les livraison bénéficient d'une réduction sur leur commande.
-    Le taux de réduction varie en fonction du nombre de livraisons effectuées.</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase" id="chartitle">La livraison entre particuliers</h2>
+                        <h3 class="section-subheading text-muted"></h3>
+                        <div>Afin de permettre aux utilisateurs n'ayant pas la possibilité de se déplacer pour récupérer leurs commandes de profiter également de nos services,
+                            un système de livraison collaborative a été mise en place.<br>
+                            Un acheteur a la possibilité de se porter volontaire pour la récupération des commandes des autres utilisateurs dans son secteur.<br>
+                            Ainsi, celui-ci après avoir signé <a id="imok" href="{{ path ('rules') }}">notre charte</a>; s'assure que chaque client disposera de sa commande en effectuant les livraisons.<br>
+                            Les acheteurs s'étant désignés comme étant volontaire pour effectuer les livraison bénéficient d'une réduction sur leur commande.
+                            Le taux de réduction varie en fonction du nombre de livraisons effectuées.</div>
+
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
-    </div>
-
-
-    </div>
-
-</section>
-
+    </section>
 {% endblock %}
