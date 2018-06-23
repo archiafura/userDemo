@@ -57,35 +57,90 @@
                 <div class="offset-lg-1 col-sm-12 col-lg-5">
                     <h3>Mon Tableau de bord</h3>
                     <div id="rosetableau">
-                        <p id="bienvenue">Bonjour, @UTILISATEUR !
+                        <p id="bienvenue">Bonjour {{app.user.username}} !
                             Depuis le tableau de bord 'Mon compte', vous pouvez avoir un aperçu de vos récentes activités et mettre à jour les informations de votre compte. Sélectionnez un cadre sur cette page pour voir ou modifier les informations.</p>
                         <h4>Mes infos de contact</h4>
-                        <p>Nom</p>
-                        <p>Prénom</p>
-                        <p>E-mail</p>
-                        <p>Tél</p>
+                        {% if app.user.tableaudeborduser.prenominfos is defined %}
+                        <p>Nom : {{app.user.tableaudeborduser.prenominfos}}</p>
+                        {% else %}
+                            <p>Nom : {{app.user.fullname}}</p>
+                        {% endif %}
+                        {% if app.user.tableaudeborduser.nominfos is defined %}
+                        <p>Prénom : {{app.user.tableaudeborduser.nominfos}}</p>
+                        {% else %}
+                        <p>Prénom : {{app.user.lastname}}</p>
+                        {% endif %}
+                        {% if app.user.tableaudeborduser.emailinfos is defined %}
+                        <p>E-mail : {{ app.user.tableaudeborduser.emailinfos}}</p>
+                        {% else %}
+                        <p>E-mail : {{ app.user.email}}</p>
+                        {% endif %}
+                        {% if app.user.tableaudeborduser.telephone is defined %}
+                        <p>Tél : {{ app.user.tableaudeborduser.telephone}}</p>
+                        {% else %}
+                        <p>Tél : {{ app.user.tel}}</p>
+                        {% endif %}
                         <h4>Carnet d'adresses</h4>
-                        <h5>Adresse de livraison</h5>
+                        <h5 id="titre5">Adresse de livraison</h5>
                         <div id="gauche">
-                            <p>Nom</p>
-                            <p>Prénom</p>
-                            <p>Adresse</p>
+                            {% if app.user.tableaudeborduser.prenomlivraison is defined %}
+                            <p>Nom : {{ app.user.tableaudeborduser.prenomlivraison}}</p>
+                            {% else %}
+                            <p>Nom : {{ app.user.fullname}}</p>
+                            {% endif %}
+                            {% if app.user.tableaudeborduser.nomlivraison is defined %}
+                            <p>Prénom : {{ app.user.tableaudeborduser.nomlivraison}}</p>
+                            {% else %}
+                            <p>Prénom : {{app.user.lastname}}</p>
+                            {% endif %}
+                            {% if app.user.tableaudeborduser.livraison is defined %}
+                            <p>Adresse : {{ app.user.tableaudeborduser.livraison}}</p>
+                            {% else %}
+                            <p>Adresse : {{ app.user.adress}}</p>
+                            {% endif %}
                         </div>
                         <div id="droite">
-                            <p>Ville</p>
-                            <p>Code postal</p>
+                            {% if app.user.tableaudeborduser.villelivraison is defined %}
+                            <p>Ville : {{ app.user.tableaudeborduser.villelivraison}}</p>
+                            {% else %}
+                            <p>Ville : {{ app.user.ville}}</p>
+                            {% endif %}
+                            {% if app.user.tableaudeborduser.cplivraison is defined %}
+                            <p>Code postal : {{ app.user.tableaudeborduser.cplivraison}}</p>
+                            {% else %}
+                            <p>Code postal : {{ app.user.zip}}</p>
+                            {% endif %}
                         </div>
-                        <h5>Adresse de facturation</h5>
+                        <h5 id="titre5">Adresse de facturation</h5>
                         <div id="gauche">
-                            <p>Nom</p>
-                            <p>Prénom</p>
-                            <p>Adresse</p>
+                            {% if app.user.tableaudeborduser.prenomfacturation is defined %}
+                            <p>Nom : {{ app.user.tableaudeborduser.prenomfacturation}}</p>
+                            {% else %}
+                            <p>Nom : {{ app.user.fullname}}</p>
+                            {% endif %}
+                            {% if app.user.tableaudeborduser.nomfacturation is defined %}
+                            <p>Prénom : {{ app.user.tableaudeborduser.nomfacturation}}</p>
+                            {% else %}
+                            <p>Prénom : {{app.user.lastname}}</p>
+                            {% endif %}
+                            {% if app.user.tableaudeborduser.facturation is defined %}
+                            <p>Adresse : {{ app.user.tableaudeborduser.facturation}}</p>
+                            {% else %}
+                            <p>Adresse : {{ app.user.adress}}</p>
+                            {% endif %}
                         </div>
                         <div id="droite">
-                            <p>Ville</p>
-                            <p>Code postal</p>
+                            {% if app.user.tableaudeborduser.villefacturation is defined %}
+                            <p>Ville : {{ app.user.tableaudeborduser.villefacturation}}</p>
+                            {% else %}
+                            <p>Ville : {{ app.user.ville}}</p>
+                            {% endif %}
+                            {% if app.user.tableaudeborduser.cpfacturation is defined %}
+                            <p>Code postal : {{ app.user.tableaudeborduser.cpfacturation}}</p>
+                            {% else %}
+                            <p>Code postal : {{ app.user.zip}}</p>
+                            {% endif %}
                         </div>
-
 
 
 

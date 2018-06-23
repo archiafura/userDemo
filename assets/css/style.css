@@ -933,6 +933,9 @@ h3#historique {
     text-transform:uppercase;
 
 }
+#titre5 {
+    float: left;
+}
 p {
     font-size:12px;
 

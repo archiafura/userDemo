@@ -122,6 +122,17 @@ class User implements UserInterface, \Serializable
      */
     private $newletter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tableaudeborduser", inversedBy="user")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $tableaudeborduser;
+
+ 
+
+    
+   
+
 
 
 
@@ -346,6 +357,19 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    public function getTableaudeborduser(): ?Tableaudeborduser
+    {
+        return $this->tableaudeborduser;
+    }
+
+    public function setTableaudeborduser(?Tableaudeborduser $tableaudeborduser): self
+    {
+        $this->tableaudeborduser = $tableaudeborduser;
+
+        return $this;
+    }
+
+    
 
 
 }

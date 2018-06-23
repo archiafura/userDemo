@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tableaudeborduser;
+use App\Entity\User;
 use Doctrine\DBAL\Types\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -56,12 +57,21 @@ class TableaudeborduserController extends Controller
 
         $formulaire->handleRequest($requete);
 
+
+
+
+
         if ($formulaire->isSubmitted() && $formulaire->isValid()) {
 
+
             $infosform = $formulaire->getData();
+            $infosform->addUser($this->getUser());
             $envoiBDD = $this->getDoctrine()->getManager();
             $envoiBDD->persist($infosform);
+            //$envoiBDD->persist($user);
             $envoiBDD->flush();
+
+
 
             return $this->redirectToRoute('infosformOK');
 
@@ -71,10 +81,14 @@ class TableaudeborduserController extends Controller
             array(
                 'formulaire' => $formulaire->createView(),
             ));
+
+
+
     }
 
+
     /**
-     * @Route("/infosformOK", name="infosformOK")
+     * @Route("User/infosformOK", name="infosformOK")
      */
 
     public function formulaireOK()
