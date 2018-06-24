@@ -3,12 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\EspaceProfessionnel;
+use App\Entity\Product;
+use App\Entity\User;
+use Doctrine\DBAL\Types\FloatType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormTypeInterface;
 
 class EspaceProfessionnelController extends Controller
 {
@@ -29,28 +34,28 @@ class EspaceProfessionnelController extends Controller
     {
 
         //////////////////////FOMULAIRE 1//////////////////////////
-        $formulaireProduit = new EspaceProfessionnel();
 
+
+        $formulaireProduit = new Product();
         $formulaireProduit = $this->createFormBuilder($formulaireProduit)
-            ->add('typeProduit', TextType::class, array('label' => 'Type de produit',))
-            ->add('dureeDispo', TextType::class, array('label' => 'Durée de disponibilité',))
-            ->add('horaireDispo', TextType::class, array('label' => 'Horaire de disponibilité'))
-            ->add('conseilUtilisation', TextType::class, array('label' => 'Conseil d\'utilisation'))
-            ->add('imgProduit', TextType::class, array('label' => 'Ajouter une image'))
+            ->add('name', TextType::class, array('label' => 'Type de produit',))
+            ->add('quantity', IntegerType::class, array('label' => 'Quantité du produit',))
+            ->add('fournisseur', TextType::class, array('label' => 'Fournisseur du produit',))
+            ->add('description', TextType::class, array('label' => 'Description du produit',))
+            ->add('price', IntegerType::class, array('label' => 'Prix du produit',))
             ->add('envoyer', SubmitType::class, array('label' => 'AJOUTER'))
 
             ->getForm();
-
         $formulaireProduit->handleRequest($requete);
-
         if ($formulaireProduit->isSubmitted() && $formulaireProduit->isValid()){
 
-            $formulaireProduit = $formulaireProduit->getData();
+            $formProduit = $formulaireProduit->getData();
 
             $envoiBDD = $this->getDoctrine()->getManager();
             $envoiBDD->persist($formProduit);
             $envoiBDD->flush();
         }
+
         //////////////////////////////FORMULAIRE 2////////////////////////////////////////////////////////
 
         $formEvent = new EspaceProfessionnel();
@@ -75,6 +80,13 @@ class EspaceProfessionnelController extends Controller
         }
 
 
+        //////////////////////////////////////////////////////
+        $produit = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->findAll();
+
+
+
         /////////////////////////////////////////////////////////
 
 
@@ -82,11 +94,13 @@ class EspaceProfessionnelController extends Controller
         return $this->render( 'Pro/espace_professionnel.html.twig',
             array(
                 'formulaireProduit' => $formulaireProduit->createView(),
-                'formulaireEvent' => $formulaireEvent->createView()
+                'formulaireEvent' => $formulaireEvent->createView(),
+                'product' => $produit
             )
         );
 
     }
+
 
 
 }

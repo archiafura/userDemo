@@ -35,14 +35,15 @@
                 <p class="titreArticlePro">
                     mes infos:
                 </p>
+
                 <div id="infoPro">
-                    <p class="infoProText">nom:</p>
-                    <p class="infoProText">prenom:</p>
-                    <p class="infoProText">categorie:</p>
-                    <p class="infoProText">localisation:</p>
-                    <p class="infoProText">numero:</p>
-                    <p class="infoProText">livraison:</p>
+                    <p class="infoProText">{{ app.user.fullname }}</p>
+                    <p class="infoProText">{{ app.user.lastname }}</p>
+                    <p class="infoProText">{{ app.user.adress }}</p>
+                    <p class="infoProText">{{ app.user.zip }}</p>
+                    <p class="infoProText">{{ app.user.username }}</p>
                 </div>
+
                 <button id="MAJinfosPro"> mettre a jour les infos</button>
             </article>
         </section>
@@ -53,24 +54,19 @@
                     produits disponible:
                 </p>
                 <div id="produitDispoPro">
-                    <div class="pdtPro">
-                        <img class="imgPdtPro" src="/img/strawberry.png">
-                        <div class="descriptionPdtPro">
-                            <h4 class="titrePdtPro">Fraise</h4>
-                            <p class="txtPdt">10 kg</p>
-                            <p class="txtPdt">05/07/2018</p>
-                            <p class="txtPdt">parfaite pour des confiture....</p>
-                        </div>
-                    </div>
-                    <div class="pdtPro">
-                        <img class="imgPdtPro" src="/img/strawberry.png">
-                        <div class="descriptionPdtPro">
-                            <h4 class="titrePdtPro">Fraise</h4>
-                            <p class="txtPdt">10 kg</p>
-                            <p class="txtPdt">05/07/2018</p>
-                            <p class="txtPdt">parfaite pour des confiture....</p>
-                        </div>
-                    </div>
+                    {%  if product is not empty %}
+                        {% for prod in product %}
+                            <div class="pdtPro">
+                                <img class="imgPdtPro" src="/img/strawberry.png">
+                                <div class="descriptionPdtPro">
+                                    <h4 class="titrePdtPro">{{ prod.name }}</h4>
+                                    <p class="txtPdt">quantité: {{ prod.quantity }}</p>
+                                    <p class="txtPdt">conseils: {{ prod.description }}</p>
+                                    <p class="txtPdt">prix: {{ prod.price }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </article>
 
