@@ -17,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class UserType extends AbstractType
 {
@@ -33,15 +34,16 @@ class UserType extends AbstractType
             ->add('adress', TextType::class, array('label' => 'Adresse'))
             ->add('zip', NumberType::class , array('label' => 'Code Postal'))
             ->add('ville', TextType::class, array('label' => 'Ville'))
-            ->add('newletter', CheckboxType::class, array('label' => 'Inscription à la newsletter', 'required' => false,))
-            ->add('roles', CollectionType::class, array('label' => 'Statut','entry_type' =>  ChoiceType::class,
-              'entry_options' =>  array( 'choices' => array (
-                  'Particulier' => 'ROLE_USER' , 'Professionnel' => 'ROLE_PRO' ,),),))
             ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options'  => array('label' => 'Mot de Passe'),
                 'second_options' => array('label' => 'Confirmer le mot de passe'),
             ))
+            ->add('roles', CollectionType::class, array('label' => 'Statut','entry_type' =>  ChoiceType::class,
+                'entry_options' =>  array( 'choices' => array (
+                    'Particulier' => 'ROLE_USER' , 'Professionnel' => 'ROLE_PRO' ,),),))
+            ->add('newletter', CheckboxType::class, array('label' => 'Inscription à la newsletter', 'required' => false,))
+            ->add('envoyer', SubmitType::class, array('label' => "S'IDENTIFIER"))
         ;
     }
 

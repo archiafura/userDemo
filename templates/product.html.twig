@@ -2,12 +2,23 @@
 
 {% block body %}
 
-    {% for prod in product %}
-        <p>{{ prod.name }}</p>
-        <p>{{ prod.quantity }}</p>
-        <p>{{ prod.fournisseur }}</p>
-        <p>{{ prod.description }}</p>
-        <p>{{ prod.price }}</p>
+
+{% for prod in product %}
+
+
+    <div action="" method="post">
+
+    <h5><p>{{ prod.name }}</p></h5>
+        <label>Quantité disponible:</label>
+        <span>{{ prod.quantity }}</span>&nbsp;kilos<br>
+        <label>Producteur:</label>
+        <span>{{ prod.fournisseur }}</span><br>
+        <label>Utilisation:</label>
+        <span>{{ prod.description }}</span><br>
+        <label>Prix</label>
+        <span>{{ prod.price }}</span>&nbsp;€<br>
+        <a href="" type="submit"><img src="/img/caddie.png"></a>
+    </div><br><br>
     {% endfor %}
 
     {#{{ product }}#}

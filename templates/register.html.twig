@@ -15,7 +15,7 @@
 </head>
 
 
-
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
 
@@ -27,16 +27,7 @@
 
     <h1 id="titlinscript" class="text-center ">Inscrivez-vous</h1>
 
-    <div class="form-group center-block" >
-                <form  action="" method="post"  id="twigform">
-
-                    {{ form_start(form) }}
-
-                    {{ form_widget(form) }}
-
-                    <button id="itsok" type="submit">S'incrire !</button>
-
-                    {{ form_end(form) }}
+    {{ form(form) }}
 
 
 
@@ -44,9 +35,8 @@
 
 
 
-    </form>
 
-            </div>
+
 
 
 

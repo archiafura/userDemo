@@ -19,13 +19,6 @@ class IndexController extends Controller
         return $this->render('index.html.twig');
     }
 
-    /**
-     * @Route("/admin", name="admin")
-     */
-    public function admin()
-    {
-        return $this->render('Admin/index.html.twig');
-    }
 
 
     /**
@@ -48,7 +41,7 @@ class IndexController extends Controller
 
 
         else{
-            return $this->render('Admin/great.html.twig');
+            return $this->render('Pro/great.html.twig');
         }
     }
 
@@ -64,7 +57,7 @@ class IndexController extends Controller
 
 
         else{
-            return $this->render('Admin/great.html.twig');
+            return $this->render('User/great.html.twig');
         }
     }
 
@@ -91,7 +84,7 @@ class IndexController extends Controller
      */
     public function addproduct()
     {
-        return $this->render('Pro/addproduct.html.twig');
+        return $this->render('User/addproduct.html.twig');
     }
 
     /**
@@ -106,9 +99,13 @@ class IndexController extends Controller
 
 
 
-            return $this->render('User/product.html.twig', ['product' => $product]);
+            return $this->render('User/productuser.html.twig', ['product' => $product]);
 
         }
+
+
+
+
 
 
     /**
@@ -117,13 +114,11 @@ class IndexController extends Controller
 
     public function product()
     {
-        $product = $this->getDoctrine()
-            ->getRepository(Product::class)
-            ->findAll();
 
 
 
-        return $this->render('product.html.twig', ['product' => $product]);
+
+        return $this->render('product.html.twig');
 
     }
 
@@ -140,7 +135,7 @@ class IndexController extends Controller
 
 
 
-        return $this->render('Pro/product.html.twig', ['product' => $product]);
+        return $this->render('Pro/productpro.html.twig', ['product' => $product]);
 
     }
 

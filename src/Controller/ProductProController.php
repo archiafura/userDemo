@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ProductProController extends AbstractController
 {
     /**
-     * @Route("/product/pro", name="productpro")
+     * @Route("Pro/product", name="productpro")
      */
 
 

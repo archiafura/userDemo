@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\ProductType;
-use App\Entity\Product;
+use App\Entity\Panier;
 use App\Events;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,13 +16,12 @@ class AddProductController extends Controller
     /**
      * @Route("/addproduct", name="user_addproduct")
      */
-    public function addProduct(Request $request)
+    public function addProduct(Panier $product)
     {
-        $product = new Product();
-        $form = $this->createForm(ProductType::class, $product);
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        if (!$this->panier->contains($product)) {
+            $this->product[] = $product;
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
@@ -32,7 +31,6 @@ class AddProductController extends Controller
 
 
 
-        return $this->render('Pro/addproduct.html.twig',
-            array('form' => $form->createView()));
+        return $this->render('User/addproduct.html.twig');
     }
 }

@@ -552,6 +552,7 @@ li:hover {
     border-radius: 10px;
     margin-left: 20%;
     margin-right: 20%;
+    padding: 2%;
 
 }
 
@@ -565,13 +566,27 @@ li:hover {
     border-radius: 7px;
 }
 
-td{
-    color: ghostwhite;
-    font-weight: bold;
-    font-size: 15pt;
-    font-family: "robotoregular";
+#user{
+    background-color: #67b825;
+    padding: 2%;
+    width: 35%;
+    border-radius: 10px;
+    margin-left: 33%;
+    color: whitesmoke;
+    font-size: larger;
 }
 
+#user_envoyer{
+    margin-left: 150px;
+}
+
+#check{
+    color: whitesmoke;
+}
+
+#check :hover{
+    color: darkorange;
+}
 /*............Login..........*/
 
 #logform{
@@ -640,6 +655,20 @@ td{
 .colorus{
     color: chartreuse;
 }
+
+
+
+/*...............Product.............*/
+
+#catalog
+{
+    background-color: #d5ffb2;
+    border-radius: 10px;
+    width: 350px;
+    padding: 10px;
+    margin: 50px;
+}
+
 
 
 /*................Fin Doris..........*/
