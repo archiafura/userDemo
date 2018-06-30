@@ -52,7 +52,7 @@ class EspaceProfessionnelController extends Controller
         if ($formulaireProduit->isSubmitted() && $formulaireProduit->isValid()){
 
             $formProduit = $formulaireProduit->getData();
-
+            $formProduit->setUser($this->getUser());
             $envoiBDD = $this->getDoctrine()->getManager();
             $envoiBDD->persist($formProduit);
             $envoiBDD->flush();
