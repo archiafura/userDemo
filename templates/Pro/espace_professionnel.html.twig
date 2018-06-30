@@ -29,7 +29,9 @@
 {% block body %}
 
     <main id="conteneurEspacePro" >
-
+        {#{{ dump(app.user) }}#}
+        {#{{ dump(events) }}#}
+        {#{{ dump(events[2].user.id) }}#}
         <section id="sectionEProLeft">
             <article id="articleProLeft">
                 <p class="titreArticlePro">
@@ -74,13 +76,18 @@
                 <p class="titreArticlePro">
                     evenements disponible:
                 </p>
-                <div id="listeEventDispo">
-                    <h4 class="titrePdtPro">Marché:</h4>
-                    <p class="txtEvent">dates:</p>
-                    <p class="txtEvent">horaires:</p>
-                    <p class="txtEvent">lieux:</p>
-                    <p class="txtEvent">Produits proposé</p>
-                </div>
+
+                {% if events is not empty %}
+                    {% for event in events %}
+                        {% if event.user.id == app.user.id %}
+                            <div id="listeEventDispo">
+                                <h4 class="titrePdtPro">{{ event.typeEvent }}</h4>
+                                <p class="txtEvent">{{ event.lieuEvent }}</p>
+                                <p class="txtEvent">{{ event.dateEvent }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </article>
         </section>
 
