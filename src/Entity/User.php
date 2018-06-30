@@ -127,9 +127,15 @@ class User implements UserInterface, \Serializable
      */
     private $events;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="user")
+     */
+    private $products;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
 
@@ -398,6 +404,37 @@ class User implements UserInterface, \Serializable
             // set the owning side to null (unless already changed)
             if ($event->getUser() === $this) {
                 $event->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
+            // set the owning side to null (unless already changed)
+            if ($product->getUser() === $this) {
+                $product->setUser(null);
             }
         }
 
