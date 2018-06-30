@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\EspaceProfessionnel;
+use App\Entity\Event;
 use App\Entity\Product;
 use App\Entity\User;
 use Doctrine\DBAL\Types\FloatType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -58,12 +60,13 @@ class EspaceProfessionnelController extends Controller
 
         //////////////////////////////FORMULAIRE 2////////////////////////////////////////////////////////
 
-        $formEvent = new EspaceProfessionnel();
+        $formEvent = new Event();
 
         $formulaireEvent = $this->createFormBuilder($formEvent)
             ->add('typeEvent', TextType::class, array('label' => 'Type d\'evenement',))
             ->add('dateEvent', TextType::class, array('label' => 'Date de l\'evenement',))
             ->add('LieuEvent', TextType::class, array('label' => 'Lieu de l\'evenement',))
+//            ->add('user', HiddenType::class, array('value' => $idUser))
             ->add('envoyer', SubmitType::class, array('label' => 'AJOUTER'))
 
             ->getForm();
@@ -73,6 +76,7 @@ class EspaceProfessionnelController extends Controller
         if ($formulaireEvent->isSubmitted() && $formulaireEvent->isValid()){
 
             $formEvent = $formulaireEvent->getData();
+            $formEvent->setUser($this->getUser());
 
             $envoiBDD = $this->getDoctrine()->getManager();
             $envoiBDD->persist($formEvent);
@@ -85,7 +89,9 @@ class EspaceProfessionnelController extends Controller
             ->getRepository(Product::class)
             ->findAll();
 
-
+        $events = $this->getDoctrine()
+            ->getRepository(Event::class)
+            ->findAll();
 
         /////////////////////////////////////////////////////////
 
@@ -95,7 +101,8 @@ class EspaceProfessionnelController extends Controller
             array(
                 'formulaireProduit' => $formulaireProduit->createView(),
                 'formulaireEvent' => $formulaireEvent->createView(),
-                'product' => $produit
+                'product' => $produit,
+                'events' => $events
             )
         );
 
