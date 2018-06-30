@@ -123,12 +123,16 @@ class User implements UserInterface, \Serializable
     private $newletter;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tableaudeborduser", inversedBy="user")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="user")
      */
-    private $tableaudeborduser;
+    private $events;
 
- 
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
+
+
 
     
    
@@ -365,6 +369,37 @@ class User implements UserInterface, \Serializable
     public function setTableaudeborduser(?Tableaudeborduser $tableaudeborduser): self
     {
         $this->tableaudeborduser = $tableaudeborduser;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            // set the owning side to null (unless already changed)
+            if ($event->getUser() === $this) {
+                $event->setUser(null);
+            }
+        }
 
         return $this;
     }
