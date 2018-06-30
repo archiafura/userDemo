@@ -51,6 +51,11 @@ class Product
      */
     private $paniers;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="products")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->paniers = new ArrayCollection();
@@ -145,6 +150,18 @@ class Product
             $this->paniers->removeElement($panier);
             $panier->removeProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
