@@ -132,17 +132,19 @@ class User implements UserInterface, \Serializable
      */
     private $products;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tableaudeborduser", inversedBy="user")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $tableaudeborduser;
+
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
         $this->products = new ArrayCollection();
     }
-
-
-
-    
-   
-
 
 
 

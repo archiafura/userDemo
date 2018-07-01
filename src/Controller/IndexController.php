@@ -165,6 +165,14 @@ class IndexController extends Controller
     }
 
     /**
+     * @Route("/User/charte", name="charte_user")
+     */
+    public function charte_user()
+    {
+        return $this->render('User/charte_user.html.twig');
+    }
+
+    /**
      * @Route("/forgetten", name="forgetten")
      */
     public function forgetten()

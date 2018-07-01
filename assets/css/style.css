@@ -701,169 +701,26 @@ li:hover {
     background:none;
     color: white;
 }
+/*ESPACE PRO NOTATION GILDAS*/
 
-
-
-
-
-#rose {
-    background-color: #fce0e0;
-    color: #67b825;
-    font-family: 'robotoregular';
-    margin:1% 2% 10% auto;
-    padding:3%;
-
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    -moz-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
+#form_noteproduit  {
+    display: inline-block !important;
 }
 
-#rosecompte {
-    background-color: #fce0e0;
-    color: #67b825;
-    font-family: 'robotoregular';
-    margin:1% 2% 10% auto;
-    width:120%;
-    padding:5%;
-    height:85%;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    -moz-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-}
-#rosetableau {
-    background-color: #fce0e0;
-    color: #67b825;
-    font-family: 'robotoregular';
-    margin:1% 2% 10% auto;
-    padding:3%;
-    height:85%;
-
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    -moz-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
+#form_noteproduit label {
+    top:20px;
+    position: relative;
+    right: 10%;
 }
 
 
-#vert {
-    background-color: #67b825;
-    color: #ffffff;
-    font-family: 'robotoregular';
-    margin:1% 2% 10% auto;
-    padding:3%;
 
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    -moz-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
+.checked {
+    color: orange;
 }
-
-#vertfacture {
-    background-color: #67b825;
-    color: #ffffff;
-    font-family: 'robotoregular';
-    padding:1%;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    -moz-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
+.star {
+    display: inline-flex;
 }
-
-#vertbutton {
-    background-color: #67b825;
-    color: #ffffff;
-    margin:1% auto;
-    height:10%;
-    padding:1%;
-    font-family: 'robotoregular';
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    -moz-box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-    box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.50);
-}
-
-#button {
-    background-color: #67b825;
-    color: #ffffff;
-    font-size:1.2rem;
-    border:1px solid #67b825;
-    padding-top:3%;
-    padding-bottom:3%;
-
-}
-
-h3 {
-    color: #67b825;
-    font-size:2.5rem;
-    margin:3% auto;
-    padding-top:1%;
-    font-family: 'moon_flowerregular';
-    font-weight:bold;
-    text-transform:uppercase;
-
-}
-h3#historique {
-    color: #67b825;
-    font-size:2.5rem;
-    margin:3% auto;
-    padding-top:10%;
-    font-family: 'moon_flowerregular';
-    font-weight:bold;
-    text-transform:uppercase;
-
-}
-p {
-    font-size:12px;
-
-}
-#bienvenue p{
-    text-align:justify;
-    font-size:14px;}
-
-h4{
-    background-color:#fbc0c0;
-    font-size:18px;
-    color:#ffffff;
-}
-h5{
-    font-size:16px;
-    color: #67b825;
-    width:100%;
-    font-style:italic;
-    font-weight:bold;
-}
-#gauche {
-    float:left;
-    position:relative;
-    width:50%;
-}
-#droite {float:left;
-    position:relative;
-    width:50%;
-}
-input {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-#choix {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;}
 
 /*ESPACE PERSONNEL GILDAS*/
 #rose {

@@ -51,14 +51,17 @@
 
 <footer id="footer" class="container-fluid">
     <div id="menubasdepage" class="row">
-        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter">À PROPOS</p><br/><p id="titresfooter">QUI SOMMES NOUS? </p><br/><p id="titresfooter"> CONTACTEZ-NOUS </p><br/><p id="titresfooter">PARTENAIRES</p><br/>
+        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules') }}">NOTRE CHARTE</a></p><br/>
         </div>
         <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
         </div>
         <div id="carte" class="offset-lg-2 col-sm-4 col-lg-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41101.894107878936!2d1.0484701373485654!3d49.920045177734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0a207670619f9%3A0xaea20a3d78418545!2s76200+Dieppe!5e0!3m2!1sfr!2sfr!4v1527500300813" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
+
+
 </footer>
+
 
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
