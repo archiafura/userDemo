@@ -5,7 +5,6 @@
     <title>{% block title %}Paniermalin{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <script type="text/javascript" src={{ asset('build/app.js') }}></script>
         <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
     {% endblock %}
@@ -27,39 +26,31 @@
 
 {% block body %}
 
+<h1 id="what">COMMENT ÇA MARCHE ?</h1>
 
 
+<div id="presentation">
+    <div>
+        <img   src="/img/pic1.png">
+        <div id="plus">1.Effectuez votre commande avant chaque Mardi 22h ou Vendredi 22h </div>
+    </div>
+    <br>
+    <div>
+        <img src="/img/pic2.png">
+        <div id="plus">2.Récupérez votre commande le Mercredi ou le Samedi entre 13h et 19h ou faites vous livrer</div>
+    </div>
+    <br>
+    <div>
+        <img src="/img/pic3.png">
+        <div id="plus">3.Contribuez à la dimunition du gaspillage alimentaire en évitant que certains produits ne partent à la poubelle</div>
+    </div>
 
-{% for prod in product %}
-    <div  id="catalog" action="" method="post">
 
-        <h5><p>{{ prod.name }}</p></h5>
-        <label>Quantité disponible:</label>
-        <span>{{ prod.quantity }}</span>&nbsp;kilos<br>
-        <label>Producteur:</label>
-        <span>{{ prod.fournisseur }}</span><br>
-        <label>Utilisation:</label>
-        <span>{{ prod.description }}</span><br>
-        <label>Prix</label>
-        <span>{{ prod.price }}</span>&nbsp;€<br>
-        <div class="star">
-            <label>Note : </label><br>
-            {% for i in 1..5 %}
-            {% set starClass = (prod.noteproduit >= i ? "fa fa-star checked" : "fa fa-star")  %}
-            <p><i class="{{starClass}}"></i></p><br>
-            {% endfor %}</p>
-        </div>
-        <p><a href="" type="submit"><img src="/img/caddie.png"></a></p>
-    </div><br><br>
-    {% endfor %}
 
 </div>
-    {#{{ product }}#}
-
-
-
 
 {% endblock %}
+
 <footer id="footer" class="container-fluid">
     <div id="menubasdepage" class="row">
         <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus_pro') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte_pro') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules_pro') }}">NOTRE CHARTE</a></p><br/>

@@ -70,6 +70,16 @@ class IndexController extends Controller
         return $this->render('aboutus.html.twig');
     }
 
+    /**
+     * @Route("/aboutuspro", name="aboutus_pro")
+     */
+    public function aboutuspro()
+    {
+        return $this->render('Pro/aboutus_pro.html.twig');
+    }
+
+
+
 
     /**
      * @Route("/added", name="added")
@@ -165,6 +175,15 @@ class IndexController extends Controller
     }
 
     /**
+     * @Route("/chartepro", name="charte_pro")
+     */
+    public function chartepro()
+    {
+        return $this->render('Pro/chartepro.html.twig');
+    }
+
+
+    /**
      * @Route("/User/charte", name="charte_user")
      */
     public function charte_user()
@@ -186,5 +205,14 @@ class IndexController extends Controller
     public function rules()
     {
         return $this->render('rules.html.twig');
+    }
+
+
+    /**
+     * @Route("/rulespro", name="rules_pro")
+     */
+    public function rulespro()
+    {
+        return $this->render('Pro/rulespro.html.twig');
     }
 }
