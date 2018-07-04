@@ -29,25 +29,16 @@
 
 
 
-    {% for prod in product %}
-
-        <div id="catalog" action="" method="post">
-
-            <h5><p>{{ prod.name }}</p></h5>
-            <label>Quantité disponible:</label>
-            <span>{{ prod.quantity }}</span>&nbsp;kilos<br>
-            <label>Producteur:</label>
-            <span>{{ prod.fournisseur }}</span><br>
-            <label>Utilisation:</label>
-            <span>{{ prod.description }}</span><br>
-            <label>Prix</label>
-            <span>{{ prod.price }}</span>&nbsp;€<br>
-            <a href="" type="submit"><img src="/img/caddie.png"></a>
-        </div><br><br>
+    {{ dump(files) }}
+<div id="conteneurMainPdt">
+    <main id="mainPagePdt">
+    {% for key, file in files if key > 1  %}
+        <div class="iconePdt">
+            <a href="" name="{{ file }}"><img src="/img/icones/{{ file }}"></a>
+        </div>
     {% endfor %}
-
-{#{{ product }}#}
-
+    </main>
+</div>
 
 
 
