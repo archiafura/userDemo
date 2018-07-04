@@ -16,29 +16,45 @@
         <a href="{{ path('pro') }}"><img src="/img/logo11-final.png" id="logo" /></a>
         <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
         <span id="liens">
-
             <a>Bienvenue {{ app.user.username }} !</a>
             <a href="{{ path('security_logout')}}">Déconnexion</a><br>
-
-                    </span>
+        </span>
     </div>
 </header>
+
+
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.quantity) }}
-    {{ form_row(form.fournisseur) }}
-    {{ form_row(form.description) }}
-    {{ form_row(form.price) }}
-
-
-    <button type="submit">Ajouter !</button>
-    {{ form_end(form) }}
+    <div class="container-fluid">
+        <main>
+            {{ form_start(formulaire) }}
+            <div class="row">
+                <div class="offset-lg-1 col-sm-10 col-lg-10">
+                    <h1>Contactez-Nous</h1>
+                    <div id="rosetableau">
+                        <label for="prénom">Prénom</label><br/>
+                        {{ form_errors(formulaire.prenom) }}
+                        {{ form_widget(formulaire.prenom) }}
+                        <label for="nom">Nom</label><br/>
+                        {{ form_errors(formulaire.nom) }}
+                        {{ form_widget(formulaire.nom) }}
+                        <label for="email">E-mail</label><br/>
+                        {{ form_errors(formulaire.email) }}
+                        {{ form_widget(formulaire.email) }}
+                        <label for="message">Votre message</label><br/>
+                        {{ form_errors(formulaire.message) }}
+                        {{ form_widget(formulaire.message) }}<br/>
+                        {{ form_widget(formulaire.envoyer) }}
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formulaire) }}
+        </main>
+    </div>
 {% endblock %}
 {% block footer %}
     <footer id="footer" class="container-fluid">
         <div id="menubasdepage" class="row">
-            <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus_user') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte_user') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules_user') }}">NOTRE CHARTE</a></p><br/>
+            <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus_pro') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte_pro') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules_pro') }}">NOTRE CHARTE</a></p><br/>
             </div>
             <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
             </div>
@@ -49,12 +65,3 @@
 
     </footer>
 {% endblock %}
-
-
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-{% endblock %}
-</body>

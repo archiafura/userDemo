@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Paniermalin{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script type="text/javascript" src={{ asset('build/app.js') }}></script>
+        <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+    {% endblock %}
+</head>
+{% block header %}
+    <header class="container-fluid">
+
+        <div id="cadreonglet">
+            <a href="{{ path('user') }}"><img src="/img/logo11-final.png" id="logo" /></a>
+            <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
+            <span id="liens">
+
+            <a>Bienvenue {{ app.user.username }} !</a>
+            <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+
+                    </span>
+        </div>
+    </header>
+{% endblock %}
+
+
+{% block body %}
+
+    <h1 id="what">COMMENT ÇA MARCHE ?</h1>
+
+
+    <div id="presentation">
+        <div>
+            <img   src="/img/pic1.png">
+            <div id="plus">1.Effectuez votre commande avant chaque Mardi 22h ou Vendredi 22h </div>
+        </div>
+        <br>
+        <div>
+            <img src="/img/pic2.png">
+            <div id="plus">2.Récupérez votre commande le Mercredi ou le Samedi entre 13h et 19h ou faites vous livrer</div>
+        </div>
+        <br>
+        <div>
+            <img src="/img/pic3.png">
+            <div id="plus">3.Contribuez à la dimunition du gaspillage alimentaire en évitant que certains produits ne partent à la poubelle</div>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
+{% block footer %}
+<footer id="footer" class="container-fluid">
+    <div id="menubasdepage" class="row">
+        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus_user') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte_user') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules_user') }}">NOTRE CHARTE</a></p><br/>
+        </div>
+        <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
+        </div>
+        <div id="carte" class="offset-lg-2 col-sm-4 col-lg-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41101.894107878936!2d1.0484701373485654!3d49.920045177734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0a207670619f9%3A0xaea20a3d78418545!2s76200+Dieppe!5e0!3m2!1sfr!2sfr!4v1527500300813" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+</footer>
+{% endblock %}

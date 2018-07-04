@@ -9,27 +9,54 @@
         <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
     {% endblock %}
 </head>
-{% block header %}
+
 <header class="container-fluid">
 
     <div id="cadreonglet">
         <a href="{{ path('user') }}"><img src="/img/logo11-final.png" id="logo" /></a>
         <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
         <span id="liens">
-
-            <a>Bienvenue {{ app.user.username }} !</a>
-            <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+{% if app.user.username is defined %}
+    <a>Bienvenue {{ app.user.username }} !</a>
+    <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+{% else %}
+    <a href="{{ path('security_login') }}">Connexion</a>
+    <a href="{{ path('user_registration') }}">S'inscrire</a>
+{% endif %}
 
                     </span>
     </div>
 </header>
+
+
+{% block body %}
+    <div class="container-fluid">
+        <main>
+            {{ form_start(formulaire) }}
+            <div class="row">
+                <div class="offset-lg-1 col-sm-10 col-lg-10">
+                    <h1>Contactez-Nous</h1>
+                    <div id="rosetableau">
+                        <label for="prénom">Prénom</label><br/>
+                        {{ form_errors(formulaire.prenom) }}
+                        {{ form_widget(formulaire.prenom) }}
+                        <label for="nom">Nom</label><br/>
+                        {{ form_errors(formulaire.nom) }}
+                        {{ form_widget(formulaire.nom) }}
+                        <label for="email">E-mail</label><br/>
+                        {{ form_errors(formulaire.email) }}
+                        {{ form_widget(formulaire.email) }}
+                        <label for="message">Votre message</label><br/>
+                        {{ form_errors(formulaire.message) }}
+                        {{ form_widget(formulaire.message) }}<br/>
+                        {{ form_widget(formulaire.envoyer) }}
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formulaire) }}
+        </main>
+    </div>
 {% endblock %}
-
-
-
-
-{% block body %}{% endblock %}
-
 {% block footer %}
     <footer id="footer" class="container-fluid">
         <div id="menubasdepage" class="row">
@@ -44,14 +71,3 @@
 
     </footer>
 {% endblock %}
-
-
-
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-{% endblock %}
-</body>
-</html>

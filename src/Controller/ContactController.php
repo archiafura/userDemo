@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+
 class ContactController extends Controller
 {
     /**
@@ -25,6 +26,7 @@ class ContactController extends Controller
     /**
      * @Route("/contact/formulaire", name="contact_formulaire")
      */
+
     public function formulaire(Request $requete, \Swift_Mailer $mailer)
     {
         $contactform = new contact();
@@ -34,7 +36,7 @@ class ContactController extends Controller
             ->add('nom', TextType::class, array('label' => 'NOM','attr' => array('class' => 'form-control'))  )
             ->add('email', EmailType::class, array('label' => 'EMAIL','attr' => array('class' => 'form-control'))  )
             ->add('message', TextareaType::class, array('label' => 'VOTRE MESSAGE', 'attr' => array('cols' => '100', 'rows' => '10','class' => 'form-control'))  )
-            ->add('envoyer', SubmitType::class, array('label' => "ENVOYER"))
+            ->add('envoyer', SubmitType::class, array('label' => "ENVOYER",'attr' => array('class' => 'envoicontact'))  )
             ->getForm();
 
         $formulaire->handleRequest($requete);
@@ -66,11 +68,26 @@ class ContactController extends Controller
             return $this->redirectToRoute('contactformOK');
         }
 
-        return $this->render('contact.html.twig',
-            array(
-                'formulaire' => $formulaire->createView(),
-            ));
+        if (TRUE === $this->get('security.authorization_checker')->isGranted('ROLE_PRO')) {
+            return $this->render('Pro/contact.html.twig',
+                array(
+                    'formulaire' => $formulaire->createView(),
+                ));
+        }
+        if ($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+                return $this->render('User/contact.html.twig',
+                    array(
+                        'formulaire' => $formulaire->createView(),
+                    ) );
+        }
+        else {
+            return $this->render('contact.html.twig',
+                array(
+                    'formulaire' => $formulaire->createView(),
+                ) );
+        }
     }
+
 
     /**
      * @Route("/contactformOK", name="contactformOK")
@@ -78,8 +95,17 @@ class ContactController extends Controller
 
     public function formulaireOK()
     {
-        return $this->render('contactformOK.html.twig');
+        if (TRUE === $this->get('security.authorization_checker')->isGranted('ROLE_PRO')) {
+        return $this->render('Pro/contactformOK.html.twig');
+        }
+        if (TRUE === $this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->render('User/contactformOK.html.twig');
+        }
+        else {
+            return $this->render('contactformOK.html.twig');
+        }
     }
+
 
 
 }
