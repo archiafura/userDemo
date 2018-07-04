@@ -192,6 +192,24 @@ class IndexController extends Controller
     }
 
     /**
+     * @Route("/User/rules", name="rules_user")
+     */
+    public function rules_user()
+    {
+        return $this->render('User/rules_user.html.twig');
+    }
+
+    /**
+     * @Route("/User/aboutus", name="aboutus_user")
+     */
+    public function aboutus_user()
+    {
+        return $this->render('User/aboutus_user.html.twig');
+    }
+
+
+
+    /**
      * @Route("/forgetten", name="forgetten")
      */
     public function forgetten()
