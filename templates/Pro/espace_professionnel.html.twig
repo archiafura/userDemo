@@ -40,11 +40,11 @@
                 </p>
 
                 <div id="infoPro">
-                    <p class="infoProText">{{ app.user.fullname }}</p>
-                    <p class="infoProText">{{ app.user.lastname }}</p>
-                    <p class="infoProText">{{ app.user.adress }}</p>
-                    <p class="infoProText">{{ app.user.zip }}</p>
-                    <p class="infoProText">{{ app.user.username }}</p>
+                    <p class="infoProText">nom: {{ app.user.fullname }}</p>
+                    <p class="infoProText">prénom: {{ app.user.lastname }}</p>
+                    <p class="infoProText">adresse: {{ app.user.adress }}</p>
+                    <p class="infoProText">code postal: {{ app.user.zip }}</p>
+                    <p class="infoProText">pseudonyme: {{ app.user.username }}</p>
                 </div>
 
                 <button id="MAJinfosPro"> mettre a jour les infos</button>
@@ -59,11 +59,10 @@
                 <div id="produitDispoPro">
                     {%  if product is not empty %}
                         {% for prod in product %}
-                            {#{{ dump(prod.user) }}#}
-
+              
                             {% if prod.User.id == app.user.id and prod.user.id != null%}
                             <div class="pdtPro">
-                                <img class="imgPdtPro" src="/img/strawberry.png">
+                                <img class="imgPdtPro" src="/img/icones/{{ prod.name }}.png">
                                 <div class="descriptionPdtPro">
                                     <h4 class="titrePdtPro">{{ prod.name }}</h4>
                                     <p class="txtPdt">quantité: {{ prod.quantity }}</p>
