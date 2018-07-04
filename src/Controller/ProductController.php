@@ -50,14 +50,13 @@ class ProductController extends AbstractController
             ->getRepository(Product::class)
             ->findAll();
 
+        $dir = '../public/img/icones';
+        $files = scandir($dir);
+        return $this->render('User/productuser.html.twig', ['product' => $product, 'files' => $files]);
 
-
-        return $this->render('User/productuser.html.twig', ['product' => $product]);
 
 
     }
-
-
 
     /**
      * @Route("Pro/product", name="pro_product")
