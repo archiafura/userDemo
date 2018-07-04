@@ -18,6 +18,13 @@
                 <p class="txtPdt">Fournisseur: {{ prod.fournisseur }}</p>
                 <p class="txtPdt">Description du produit: {{ prod.description }}</p>
                 <p class="txtPdt">Prix en euro: {{ prod.price }}</p>
+            <div class="star">
+                <p>Note : <br>
+                {% for i in 1..5 %}
+                {% set starClass = (prod.noteproduit >= i ? "fa fa-star checked" : "fa fa-star")  %}
+                <p><i class="{{starClass}}"></i></p><br>
+                {% endfor %}</p>
+            </div>
         </div>
             {% endfor %}
             {% else %}

@@ -17,6 +17,13 @@
         <span>{{ prod.description }}</span><br>
         <label>Prix</label>
         <span>{{ prod.price }}</span>&nbsp;€<br>
+        <div class="star">
+            <label>Note : </label><br>
+            {% for i in 1..5 %}
+            {% set starClass = (prod.noteproduit >= i ? "fa fa-star checked" : "fa fa-star")  %}
+            <p><i class="{{starClass}}"></i></p><br>
+            {% endfor %}</p>
+        </div>
         <a href="" type="submit"><img src="/img/caddie.png"></a>
     </div><br><br>
     {% endfor %}
