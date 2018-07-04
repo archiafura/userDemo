@@ -14,10 +14,10 @@
             {% for prod in produit  %}
         <div class="descriptionPdtPro">
                 <h4 class="titrePdtPro">{{ prod.name }}</h4>
-                <p class="txtPdt">{{ prod.quantity }}</p>
-                <p class="txtPdt">{{ prod.fournisseur }}</p>
-                <p class="txtPdt">{{ prod.description }}</p>
-                <p class="txtPdt">{{ prod.price }}</p>
+                <p class="txtPdt">Quantité en kilo: {{ prod.quantity }}</p>
+                <p class="txtPdt">Fournisseur: {{ prod.fournisseur }}</p>
+                <p class="txtPdt">Description du produit: {{ prod.description }}</p>
+                <p class="txtPdt">Prix en euro: {{ prod.price }}</p>
         </div>
             {% endfor %}
             {% else %}
