@@ -41,11 +41,33 @@ class EspaceProfessionnelController extends Controller
 
         $formulaireProduit = new Product();
         $formulaireProduit = $this->createFormBuilder($formulaireProduit)
-            ->add('name', TextType::class, array('label' => 'Type de produit',))
-            ->add('quantity', IntegerType::class, array('label' => 'Quantité du produit',))
+            ->add('name', ChoiceType::class, array(
+                'label' => 'Type de produit',
+                'choices' => array(
+                    'aubergine' => 'aubergine',
+                    'banane' => 'banane',
+                    'bierre' => 'bierre',
+                    'brocolis' => 'brocolis',
+                    'carotte' => 'carotte',
+                    'cerise' => 'cerise',
+                    'citrouille' => 'citrouille',
+                    'courgette' => 'courgette',
+                    'fraise' => 'fraise',
+                    'fromage' => 'fromage',
+                    'oignon' => 'oignon',
+                    'poire' => 'poire',
+                    'poireau' => 'Poireau',
+                    'pomme' => 'pomme',
+                    'pomme de terre' => 'pomme de terre',
+                    'raisin' => 'raisin',
+                    'tomate' => 'tomate',
+                    'vin' => 'vin',
+                )))
+//            ->add('name', TextType::class, array('label' => 'Type de produit',))
+            ->add('quantity', IntegerType::class, array('label' => 'Quantité du produit (kg)',))
             ->add('fournisseur', TextType::class, array('label' => 'Fournisseur du produit',))
             ->add('description', TextType::class, array('label' => 'Description du produit',))
-            ->add('price', IntegerType::class, array('label' => 'Prix du produit',))
+            ->add('price', IntegerType::class, array('label' => 'Prix du produit (€)',))
             ->add('noteproduit', ChoiceType::class, array(
                 'choices' => array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' =>'5'),
                 'expanded' => true,
@@ -89,7 +111,6 @@ class EspaceProfessionnelController extends Controller
             $envoiBDD->persist($formEvent);
             $envoiBDD->flush();
         }
-
 
         //////////////////////////////////////////////////////
         $produit = $this->getDoctrine()
