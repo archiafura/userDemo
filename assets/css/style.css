@@ -701,6 +701,12 @@ li:hover {
     background:none;
     color: white;
 }
+
+/*PAGE CONTACT GILDAS*/
+.envoicontact {
+    color:green !important;
+
+}
 /*ESPACE PRO NOTATION GILDAS*/
 
 #form_noteproduit  {
