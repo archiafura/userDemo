@@ -33,7 +33,7 @@
     <main id="mainPagePdt">
     {% for key, file in files if key > 1  %}
         <div class="iconePdt">
-            <a href="{{ path('liste_product') }}?{{ file }}" name="{{ file }}"><img src="/img/icones/{{ file }}"></a>
+            <a href="{{ path('liste_product') }}?name={{ file }}" name="{{ file }}"><img src="/img/icones/{{ file }}"></a>
         </div>
     {% endfor %}
     </main>
