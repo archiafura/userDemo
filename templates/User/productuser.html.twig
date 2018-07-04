@@ -7,6 +7,27 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <script type="text/javascript" src={{ asset('build/app.js') }}></script>
         <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+                width: 60%;
+                height: 100%;
+                margin: auto 0;
+            }
+            #divMap{
+                margin-top: 40px;
+                width: 100%;
+                height: 40%;
+                display: flex;
+                justify-content: center;
+            }
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
     {% endblock %}
 </head>
 
@@ -17,17 +38,69 @@
         <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
         <span id="liens">
 
-            {#<a>Bienvenue {% if app.user.username is not empty%}{{ app.user.username }}{% endif %} !</a>#}
+            <a>Bienvenue {% if app.user.username is not empty%}{{ app.user.username }}{% endif %} !</a>
             <a href="{{ path('security_logout')}}">Déconnexion</a><br>
 
                     </span>
     </div>
 </header>
-
+{#AIzaSyDxsTnCDIPtk7JmvpGUJkP6KCvdHofzw-w#}
 {% block body %}
+    {#//////////////////////////GEOLOCAMISATION API///////////////////////////#}
+    <div id="divMap">
+        <div id="map"></div>
+    </div>
 
 
+    <script>
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see the error "The Geolocation service
+        // failed.", it means you probably did not give permission for the browser to
+        // locate you.
+        var map, infoWindow;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 49.524641, lng: 0.882833},
+                zoom: 8
+            });
+            infoWindow = new google.maps.InfoWindow;
 
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Vous êtes ici.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsTnCDIPtk7JmvpGUJkP6KCvdHofzw-w&callback=initMap">
+    </script>
+
+    {#//////////////////////////GEOLOCAMISATION API///////////////////////////#}
+
+    <h1>Liste des produits</h1>
 
 <div id="conteneurMainPdt">
     <main id="mainPagePdt">
