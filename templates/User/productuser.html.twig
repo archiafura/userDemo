@@ -17,7 +17,7 @@
         <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
         <span id="liens">
 
-            <a>Bienvenue {{ app.user.username }} !</a>
+            {#<a>Bienvenue {% if app.user.username is not empty%}{{ app.user.username }}{% endif %} !</a>#}
             <a href="{{ path('security_logout')}}">Déconnexion</a><br>
 
                     </span>
@@ -33,7 +33,7 @@
     <main id="mainPagePdt">
     {% for key, file in files if key > 1  %}
         <div class="iconePdt">
-            <a href="" name="{{ file }}"><img src="/img/icones/{{ file }}"></a>
+            <a href="{{ path('liste_product') }}?{{ file }}" name="{{ file }}"><img src="/img/icones/{{ file }}"></a>
         </div>
     {% endfor %}
     </main>
