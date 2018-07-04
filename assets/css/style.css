@@ -395,7 +395,8 @@ li:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 80%;
+    padding: 15px;
+    /*height: 80%;*/
     background-color: #fce0e0;
     padding: 15px;
     border-radius: 20px;
@@ -405,17 +406,20 @@ li:hover {
 
 .pdtPro{
     display: flex;
-    justify-content: space-around;
+    margin-top: 15px;
+    /*justify-content: space-around;*/
 }
 
 .descriptionPdtPro{
     display: flex;
     flex-direction: column;
+    margin-left: 15px;
 }
 
 .titrePdtPro{
     font-family: 'robotoregular';
-    color: #67b825;
+    color: white;
+    text-transform: capitalize;
 }
 
 .imgPdtPro{
@@ -443,7 +447,7 @@ li:hover {
 
 /*.....right...........*/
 #sectionEProRight {
-    width: 20%;
+    width: 30%;
     height: 90%;
 }
 
@@ -452,6 +456,7 @@ li:hover {
     height: 100%;
     background-color: #67b825;
     border-radius: 20px;
+    padding: 15px;
 }
 
 
