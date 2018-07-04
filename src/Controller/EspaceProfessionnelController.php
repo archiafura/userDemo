@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -45,6 +46,12 @@ class EspaceProfessionnelController extends Controller
             ->add('fournisseur', TextType::class, array('label' => 'Fournisseur du produit',))
             ->add('description', TextType::class, array('label' => 'Description du produit',))
             ->add('price', IntegerType::class, array('label' => 'Prix du produit',))
+            ->add('noteproduit', ChoiceType::class, array(
+                'choices' => array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' =>'5'),
+                'expanded' => true,
+                'multiple' => false,
+                'label' => 'Note du produit',
+            ))
             ->add('envoyer', SubmitType::class, array('label' => 'AJOUTER'))
 
             ->getForm();

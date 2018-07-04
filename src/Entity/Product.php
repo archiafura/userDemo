@@ -56,6 +56,12 @@ class Product
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $noteproduit;
+
+
     public function __construct()
     {
         $this->paniers = new ArrayCollection();
@@ -165,4 +171,17 @@ class Product
 
         return $this;
     }
+
+    public function getNoteproduit(): ?int
+    {
+        return $this->noteproduit;
+    }
+
+    public function setNoteproduit(?int $noteproduit): self
+    {
+        $this->noteproduit = $noteproduit;
+
+        return $this;
+    }
+
 }

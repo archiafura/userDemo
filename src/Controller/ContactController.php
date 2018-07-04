@@ -25,7 +25,7 @@ class ContactController extends Controller
     /**
      * @Route("/contact/formulaire", name="contact_formulaire")
      */
-    public function formulaire(Request $requete)
+    public function formulaire(Request $requete, \Swift_Mailer $mailer)
     {
         $contactform = new contact();
 
@@ -40,11 +40,28 @@ class ContactController extends Controller
         $formulaire->handleRequest($requete);
 
         if ($formulaire->isSubmitted() && $formulaire->isValid()) {
-
             $contactform = $formulaire->getData();
             $envoiBDD = $this->getDoctrine()->getManager();
             $envoiBDD->persist($contactform);
             $envoiBDD->flush();
+            $emailUser = $contactform->getEmail();
+            $emailSetTo = array('paniermalin01@gmail.com', $emailUser);
+            $messageMail = (new \Swift_Message('Panier Malin - Formulaire de Contact!'))
+                ->setFrom($emailUser)
+                ->setTo($emailSetTo)
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'emails/contact.html.twig',
+                        array('prenom' => $contactform->getPrenom(),
+                            'nom' => $contactform->getNom(),
+                            'emailUser' => $emailUser,
+                            'message' => $contactform->getMessage(),
+                        )
+                    ),
+                    'text/html'
+                );
+            $mailer->send($messageMail);
 
             return $this->redirectToRoute('contactformOK');
         }
@@ -63,5 +80,6 @@ class ContactController extends Controller
     {
         return $this->render('contactformOK.html.twig');
     }
+
 
 }

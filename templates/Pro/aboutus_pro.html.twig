@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,7 @@
 <header class="container-fluid">
 
     <div id="cadreonglet">
-        <a href="{{ path('user') }}"><img src="/img/logo11-final.png" id="logo" /></a>
+        <a href="{{ path('pro') }}"><img src="/img/logo11-final.png" id="logo" /></a>
         <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
         <span id="liens">
 
@@ -25,65 +24,36 @@
     </div>
 </header>
 
-
 {% block body %}
-<nav>
-    <ul id="menu">
-        <a href="{{ path('user_product') }}"><li>NOS PRODUITS</li></a>
-        <a href="{{ path('charte_user') }}"><li>QUI SOMMES NOUS</li></a>
-        <a href="{{ path('tableaudeborduser_formulaire') }}"><li>MON COMPTE</li></a>
-        <a href="{{ path('contact_formulaire') }}"><li>CONTACT</li></a>
-    </ul>
-</nav>
-
-<div id="header2">
-    <div id="imageRecherche">
-        <h2 id="cherchezVous">Que Recherchez vous?</h2>
-        <div id="inputSearch">
-            <input id="search" type="search" placeholder=" Carotte,Lait,Poulet..." >
-            <input id="search2" type="search" placeholder=" Où cherchez vous?" >
-            <button  id="submit" type="submit" ></button>
-        </div>
-    </div>
-</div>
-<h2 id="produitMoment">LES PRODUITS DU MOMENT:</h2>
-
-<div id="imageMoment">
-
-    <img  src="/img/fromage.png" id="fromage"/>
-
-    <img src="/img/oeuf.png" id="oeuf"/>
-
-    <img src="/img/tomate.png" id="tomate"/>
-
-</div>
-
-<div id="separator">
-    <img src="/img/separateur.png">
-</div>
 
 <h1 id="what">COMMENT ÇA MARCHE ?</h1>
-<div id="texta">
-    Nous mettons à disposition des produits qui sont destinée à la poubelle. <br/>
-    Nos produits sont des surplus d'artisans, agriculteurs ect.. </div>
 
-<div id="savoirplus">
-    <a id="plus" href="{{ path('aboutus') }}">EN SAVOIR +</a>
-</div>
 
-<div id="separator">
-    <img src="/img/separateur.png">
-</div>
-<div id="illu">
-    <img src="/img/illuchaine.png">
-</div>
+<div id="presentation">
+    <div>
+        <img   src="/img/pic1.png">
+        <div id="plus">1.Effectuez votre commande avant chaque Mardi 22h ou Vendredi 22h </div>
+    </div>
+    <br>
+    <div>
+        <img src="/img/pic2.png">
+        <div id="plus">2.Récupérez votre commande le Mercredi ou le Samedi entre 13h et 19h ou faites vous livrer</div>
+    </div>
+    <br>
+    <div>
+        <img src="/img/pic3.png">
+        <div id="plus">3.Contribuez à la dimunition du gaspillage alimentaire en évitant que certains produits ne partent à la poubelle</div>
+    </div>
 
+
+
+</div>
 
 {% endblock %}
 
 <footer id="footer" class="container-fluid">
     <div id="menubasdepage" class="row">
-        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules') }}">NOTRE CHARTE</a></p><br/>
+        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus_pro') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte_pro') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules_pro') }}">NOTRE CHARTE</a></p><br/>
         </div>
         <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
         </div>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Qui sommes nous ?{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <script type="text/javascript" src={{ asset('build/app.js') }}></script>
+        <link rel ="stylesheet" type="text/css" href="{{ asset("build/app.css") }}">
+    {% endblock %}
+</head>
+
+<header class="container-fluid">
+
+    <div id="cadreonglet">
+        <a href="{{ path('user') }}"><img src="/img/logo11-final.png" id="logo" /></a>
+        <a href=""><img src="/img/hamper-filled.png" id="panier"></a>
+        <span id="liens">
+
+            <a>Bienvenue {{ app.user.username }} !</a>
+            <a href="{{ path('security_logout')}}">Déconnexion</a><br>
+
+                    </span>
+    </div>
+</header>
+
+{% block body %}
+    <nav>
+        <ul id="menu">
+            <a href="{{ path('user_product') }}"><li>NOS PRODUITS</li></a>
+            <a href="{{ path('charte_user') }}"><li>QUI SOMMES NOUS</li></a>
+            <a href="{{ path('tableaudeborduser_formulaire') }}"><li>MON COMPTE</li></a>
+            <a href="{{ path('contact_formulaire') }}"><li>CONTACT</li></a>
+        </ul>
+    </nav>
+
+    <section id="rules" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center" id="rulestitle">
+                <div class="container-fluid">
+                    <h2 class="section-heading text-uppercase" >Le gaspillage alimentaire </h2>
+                </div>
+            </div>
+            <br><br>
+
+
+            <div class="col-lg-12 text-center" >
+
+                Le gaspillage alimentaire engendré par l’ensemble de la grande distribution  s’élèverait à 2,3 millions de tonnes par an.<br>
+                    Afin de pallier à ce problème qui indigne la population, des solutions voient peu à peu le jour.<br>
+                    Par exemple les chutes de viande à bas prix pour régaler les chiens ou les prix cassés sur les DLC courtes et achats maîtrisés.<br><br>
+                    Mais Les exigences de perfection et de calibrage des fruits et légumes; attendues des consommateurs et des distributeurs engendrent également un grand gâchis.<br>
+                    L’Union européenne a donc récemment simplifié les normes de commercialisation des fruits et légumes frais pour rendre une valeur à ceux qui, pour des raisons de forme ou d’aspect, n’arrivaient jusqu’alors même pas sur les étals.<br>
+                    Nous avons donc décider de prendre part à l'initiative en créant ce site qui a pour vocation de lister le stock des produits de nos partenaire qui risque de partir
+                    à la poubelle s'il ne trouve pas preneur.
+                    Tous les produits alimentaires proposés à la vente répondent aux normes sanitaires de consommation. Il ne s'agit en aucun pour nous de vendre des produits avariés.<br>
+            </div>
+
+            <div id="separator" class="col-lg-12 text-center">
+                <img src="/img/separateur.png">
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+
+                        <h2 class="section-heading text-uppercase" id="chartitle">Une démarche écologique</h2>
+                        <h3 class="section-subheading text-muted"></h3>
+
+                        <div class="container">Afin de privilégier un circuit-court de distribution nous favorisons lors de vos achats un mode de retrait directement au point de vente.<br>
+                            Un système de drive a été mis en place avec les agriculteurs. Toutefois si vous ne pouvez pas vous déplacer , nous avons également mis en place une livraison collaborative.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="separator" class="col-lg-12 text-center">
+                <img src="/img/separateur.png">
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase" id="chartitle">La livraison entre particuliers</h2>
+                        <h3 class="section-subheading text-muted"></h3>
+                        <div>Afin de permettre aux utilisateurs n'ayant pas la possibilité de se déplacer pour récupérer leurs commandes de profiter également de nos services,
+                            un système de livraison collaborative a été mise en place.<br>
+                            Un acheteur a la possibilité de se porter volontaire pour la récupération des commandes des autres utilisateurs dans son secteur.<br>
+                            Ainsi, celui-ci après avoir signé <a id="imok" href="{{ path ('rules') }}">notre charte</a>; s'assure que chaque client disposera de sa commande en effectuant les livraisons.<br>
+                            Les acheteurs s'étant désignés comme étant volontaire pour effectuer les livraison bénéficient d'une réduction sur leur commande.
+                            Le taux de réduction varie en fonction du nombre de livraisons effectuées.</div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+<footer id="footer" class="container-fluid">
+    <div id="menubasdepage" class="row">
+        <div id="menufooter" class=" col-sm-4 col-lg-2"><p id="titresfooter"><a href="{{ path ('aboutus') }}">À PROPOS</a></p><br/><p id="titresfooter"><a href="{{ path ('charte') }}">QUI SOMMES NOUS?</a> </p><br/><p id="titresfooter"><a href="{{ path ('contact_formulaire') }}"> CONTACTEZ-NOUS </a></p><br/><p id="titresfooter"><a href="{{ path ('rules') }}">NOTRE CHARTE</a></p><br/>
+        </div>
+        <div id="social" class="offset-lg-2 col-sm-4 col-lg-3"><img src="/img/facebookLogo.png" id="facebook"><img src="/img/instagramLogo.png" id="insta"><img src="/img/twitterLogo.png" id="twitter">
+        </div>
+        <div id="carte" class="offset-lg-2 col-sm-4 col-lg-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41101.894107878936!2d1.0484701373485654!3d49.920045177734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0a207670619f9%3A0xaea20a3d78418545!2s76200+Dieppe!5e0!3m2!1sfr!2sfr!4v1527500300813" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+</footer>
+{% endblock %}
