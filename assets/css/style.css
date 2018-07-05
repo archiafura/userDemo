@@ -227,17 +227,17 @@ li:hover {
     align-items: center;
 }
 
-#fromage{
-    padding: 3%;
-}
+/*#fromage{*/
+    /*padding: 3%;*/
+/*}*/
 
-#oeuf{
-    padding: 3%;
-}
+/*#oeuf{*/
+    /*padding: 3%;*/
+/*}*/
 
-#tomate{
-    padding: 3%;
-}
+/*#tomate{*/
+    /*padding: 3%;*/
+/*}*/
 /* TITRE ' PRODUIT DU MOMENT ' */
 
 #produitMoment{
@@ -437,7 +437,7 @@ li:hover {
 }
 
 .txtPdt, .txtEvent{
-    line-height: 5px;
+    line-height: 10px;
 }
 
 #eventDispoPro{
@@ -461,33 +461,33 @@ li:hover {
 
 
 
-@media screen and (max-width: 1200px)
+/*@media screen and (max-width: 1300px)*/
 
-{
+/*{*/
 
-    #articleProRight, #eventProRight{
-        height: auto;
-    }
+    /*#articleProRight, #eventProRight{*/
+        /*height: auto;*/
+    /*}*/
 
-    #conteneurEspacePro{
-        width: 100%;
-    }
+    /*#conteneurEspacePro{*/
+        /*width: 100%;*/
+    /*}*/
 
-    #sectionEProLeft, #sectionEProMiddle, #sectionEProRight{
-        width: 30%;
-    }
+    /*#sectionEProLeft, #sectionEProMiddle, #sectionEProRight{*/
+        /*width: 30%;*/
+    /*}*/
 
-    .titreArticlePro{
-        line-height: 40px;
-    }
+    /*.titreArticlePro{*/
+        /*line-height: 40px;*/
+    /*}*/
 
-    .txtPdt{
-        line-height: 20px;
-    }
+    /*.txtPdt{*/
+        /*line-height: 20px;*/
+    /*}*/
 
-}
+/*}*/
 
-@media screen and (max-width: 800px)
+@media screen and (max-width: 1000px)
 
 {
 
