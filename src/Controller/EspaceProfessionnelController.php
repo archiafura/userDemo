@@ -64,10 +64,10 @@ class EspaceProfessionnelController extends Controller
                     'vin' => 'vin',
                 )))
 //            ->add('name', TextType::class, array('label' => 'Type de produit',))
-            ->add('quantity', IntegerType::class, array('label' => 'Quantité du produit (kg)',))
+            ->add('quantity', IntegerType::class, array('label' => 'Quantité du produit (kg/L)',))
             ->add('fournisseur', TextType::class, array('label' => 'Fournisseur du produit',))
             ->add('description', TextType::class, array('label' => 'Description du produit',))
-            ->add('price', IntegerType::class, array('label' => 'Prix du produit (€)',))
+            ->add('price', IntegerType::class, array('label' => 'Prix du produit (€/kg)',))
             ->add('noteproduit', ChoiceType::class, array(
                 'choices' => array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' =>'5'),
                 'expanded' => true,
