@@ -29,8 +29,6 @@
 {% block body %}
     <nav>
         <ul id="menu">
-            <a href="{{ path('pro_product') }}"><li>MES PRODUITS EN VENTE</li></a>
-            <li>MES CLIENTS</li>
             <a href="{{ path('espace_professionnel_formulaire') }}"><li>TABLEAU DE BORD</li></a>
             <a href="{{ path('contact_formulaire') }}" ><li>CONTACT</li></a>
         </ul>
@@ -38,14 +36,42 @@
 
     <div id="header2">
         <div id="imageRecherche">
-            <h2 id="cherchezVous">Que Recherchez vous?</h2>
-            <div id="inputSearch">
-                <input id="search" type="search" placeholder=" Carotte,Lait,Poulet..." >
-                <input id="search2" type="search" placeholder=" Où cherchez vous?" >
-                <button  id="submite" type="submit" ></button>
-            </div>
+            <h2 id="cherchezVous">Consommez malin !</h2>
         </div>
     </div>
+
+    <h2 id="produitMoment">LES PRODUITS DU MOMENT:</h2>
+
+    <div id="imageMoment">
+
+        <img  src="/img/icones/fromage.png" class="imgMoment"/>
+        <img  src="/img/icones/raisin.png" class="imgMoment"/>
+        <img  src="/img/icones/aubergine.png" class="imgMoment"/>
+        <img src="/img/icones/carotte.png" class="imgMoment"/>
+        <img src="/img/icones/tomate.png"  class="imgMoment"/>
+
+    </div>
+
+    <div id="separator">
+        <img src="/img/separateur.png">
+    </div>
+
+    <h1 id="what">COMMENT ÇA MARCHE ?</h1>
+    <div id="texta">
+        Nous mettons à disposition des produits qui sont destinée à la poubelle. <br/>
+        Nos produits sont des surplus d'artisans, agriculteurs ect.. </div>
+
+    <div id="savoirplus">
+        <a id="plus" href="{{ path('aboutus') }}">EN SAVOIR +</a>
+    </div>
+
+    <div id="separator">
+        <img src="/img/separateur.png">
+    </div>
+    <div id="illu">
+        <img src="/img/illuchaine.png">
+    </div>
+
 
 {% endblock %}
 
